@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tasks-->
+        <scene sceneID="hNz-n2-bh7">
+            <objects>
+                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="lab1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MW0-Bg-7h4">
+                                <rect key="frame" x="47" y="340" width="320" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="gNp-O0-kTV"/>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="iuC-dN-8f1"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4r7-kn-F6y">
+                                <rect key="frame" x="177.5" y="251" width="59" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a goal for today:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APf-wE-yqb">
+                                <rect key="frame" x="123.5" y="300" width="167" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXT-oe-Q4g">
+                                <rect key="frame" x="20" y="576" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="MW0-Bg-7h4" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="0zU-ay-8Ab"/>
+                            <constraint firstItem="MW0-Bg-7h4" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Cfq-Qo-5lP"/>
+                            <constraint firstItem="4r7-kn-F6y" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="HnX-ft-76L"/>
+                            <constraint firstItem="APf-wE-yqb" firstAttribute="top" secondItem="4r7-kn-F6y" secondAttribute="bottom" constant="20" id="Rfz-tK-Th5"/>
+                            <constraint firstAttribute="trailing" secondItem="FXT-oe-Q4g" secondAttribute="trailing" constant="20" id="ZqD-NU-zDU"/>
+                            <constraint firstItem="APf-wE-yqb" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="c0f-qA-gr6"/>
+                            <constraint firstItem="FXT-oe-Q4g" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="jye-Zq-LGA"/>
+                            <constraint firstItem="FXT-oe-Q4g" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="klf-Bb-shJ"/>
+                            <constraint firstItem="FXT-oe-Q4g" firstAttribute="top" secondItem="MW0-Bg-7h4" secondAttribute="bottom" constant="20" id="stL-1V-iCK"/>
+                            <constraint firstItem="MW0-Bg-7h4" firstAttribute="top" secondItem="APf-wE-yqb" secondAttribute="bottom" constant="20" id="vbc-Xe-jtc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tasks" image="checkmark.circle" catalog="system" selectedImage="checkmark.circle" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="taskLabel" destination="FXT-oe-Q4g" id="Yk3-LB-M0v"/>
+                        <outlet property="taskPicker" destination="MW0-Bg-7h4" id="zNg-yE-Kvm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="wg7-f3-ORb">
+            <objects>
+                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="lab1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="News" image="doc.richtext" catalog="system" selectedImage="doc.richtext" id="cPa-gy-q4n"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="360"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="drc-hs-Pvp" kind="relationship" relationship="viewControllers" id="pHj-jI-ZxC"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Memos-->
+        <scene sceneID="nki-GI-6JD">
+            <objects>
+                <viewController id="drc-hs-Pvp" customClass="ThirdViewController" customModule="lab1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wJg-V3-eWK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="J4t-5a-Eqw"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Memos" image="mic" catalog="system" selectedImage="mic" id="cgv-F6-V5g"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="naY-gW-bFV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1543" y="0.0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkmark.circle" catalog="system" width="64" height="60"/>
+        <image name="doc.richtext" catalog="system" width="56" height="64"/>
+        <image name="mic" catalog="system" width="54" height="64"/>
+    </resources>
+</document>

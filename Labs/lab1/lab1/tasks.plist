@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>relaxation</string>
+		<key>taskitems</key>
+		<array>
+			<string>read a book</string>
+			<string>get outside</string>
+			<string>play a game</string>
+			<string>cook food</string>
+			<string>see friends</string>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>work</string>
+		<key>taskitems</key>
+		<array>
+			<string>check email</string>
+			<string>do homework</string>
+			<string>pay bills</string>
+			<string>run errands</string>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>health</string>
+		<key>taskitems</key>
+		<array>
+			<string>journal</string>
+			<string>drink water</string>
+			<string>exercise</string>
+			<string>meditate</string>
+			<string>eat veggies</string>
+		</array>
+	</dict>
+</array>
+</plist>
