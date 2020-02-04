@@ -33,6 +33,10 @@ class FirstViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } catch {
             print("Error loading data")
         }
+        
+        taskLabel.text = "Looks like you're going to focus on relaxation today. Your first task is to read a book. Good luck!"
+        
+        
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXT-oe-Q4g">
-                                <rect key="frame" x="20" y="576" width="374" height="20.5"/>
+                                <rect key="frame" x="202.5" y="576" width="9" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -47,9 +47,9 @@
                             <constraint firstItem="MW0-Bg-7h4" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Cfq-Qo-5lP"/>
                             <constraint firstItem="4r7-kn-F6y" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="HnX-ft-76L"/>
                             <constraint firstItem="APf-wE-yqb" firstAttribute="top" secondItem="4r7-kn-F6y" secondAttribute="bottom" constant="20" id="Rfz-tK-Th5"/>
-                            <constraint firstAttribute="trailing" secondItem="FXT-oe-Q4g" secondAttribute="trailing" constant="20" id="ZqD-NU-zDU"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FXT-oe-Q4g" secondAttribute="trailing" constant="20" id="YQe-Gr-rWG"/>
                             <constraint firstItem="APf-wE-yqb" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="c0f-qA-gr6"/>
-                            <constraint firstItem="FXT-oe-Q4g" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="jye-Zq-LGA"/>
+                            <constraint firstItem="FXT-oe-Q4g" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="jye-Zq-LGA"/>
                             <constraint firstItem="FXT-oe-Q4g" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="klf-Bb-shJ"/>
                             <constraint firstItem="FXT-oe-Q4g" firstAttribute="top" secondItem="MW0-Bg-7h4" secondAttribute="bottom" constant="20" id="stL-1V-iCK"/>
                             <constraint firstItem="MW0-Bg-7h4" firstAttribute="top" secondItem="APf-wE-yqb" secondAttribute="bottom" constant="20" id="vbc-Xe-jtc"/>
@@ -73,7 +73,32 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="YjV-3Z-jpt">
+                                <rect key="frame" x="128.5" y="388" width="157" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2c-Un-YTG">
+                                        <rect key="frame" x="49" y="0.0" width="59" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjh-EU-kVD">
+                                        <rect key="frame" x="0.0" y="79" width="157" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Read the News"/>
+                                        <connections>
+                                            <action selector="activateMusic:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="IPe-bh-68q"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YjV-3Z-jpt" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="BhX-GX-tue"/>
+                            <constraint firstItem="YjV-3Z-jpt" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="HdQ-rF-tKg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="News" image="doc.richtext" catalog="system" selectedImage="doc.richtext" id="cPa-gy-q4n"/>
@@ -108,14 +133,72 @@
                     <view key="view" contentMode="scaleToFill" id="wJg-V3-eWK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice Memos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zR7-Py-6Rc">
+                                <rect key="frame" x="137" y="236.5" width="140" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record a memo by pressing the record button, then play it back to yourself." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whz-mn-Boo">
+                                <rect key="frame" x="27" y="285.5" width="360" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="bK2-5F-zSG">
+                                <rect key="frame" x="170" y="346.5" width="74" height="203"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXv-94-Wce">
+                                        <rect key="frame" x="0.0" y="0.0" width="74" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Record"/>
+                                        <connections>
+                                            <action selector="recordAudio:" destination="drc-hs-Pvp" eventType="touchUpInside" id="tPm-Wk-ADG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCV-Gj-xtq">
+                                        <rect key="frame" x="0.0" y="81" width="74" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Play"/>
+                                        <connections>
+                                            <action selector="playAudio:" destination="drc-hs-Pvp" eventType="touchUpInside" id="Jan-Y0-jHT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQx-cU-glm">
+                                        <rect key="frame" x="0.0" y="162" width="74" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Stop"/>
+                                        <connections>
+                                            <action selector="stopAudio:" destination="drc-hs-Pvp" eventType="touchUpInside" id="EQe-zk-gMk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="whz-mn-Boo" firstAttribute="top" secondItem="zR7-Py-6Rc" secondAttribute="bottom" constant="20" id="3FN-2g-hqA"/>
+                            <constraint firstItem="bK2-5F-zSG" firstAttribute="centerX" secondItem="wJg-V3-eWK" secondAttribute="centerX" id="AYY-Mn-z3k"/>
+                            <constraint firstItem="bK2-5F-zSG" firstAttribute="top" secondItem="whz-mn-Boo" secondAttribute="bottom" constant="20" id="BUR-Fg-I9R"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="whz-mn-Boo" secondAttribute="trailing" constant="20" id="Oab-hi-Rbe"/>
+                            <constraint firstItem="bK2-5F-zSG" firstAttribute="centerY" secondItem="wJg-V3-eWK" secondAttribute="centerY" id="XQU-4e-KHp"/>
+                            <constraint firstItem="whz-mn-Boo" firstAttribute="centerX" secondItem="wJg-V3-eWK" secondAttribute="centerX" id="rZD-NE-X4Y"/>
+                            <constraint firstItem="whz-mn-Boo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wJg-V3-eWK" secondAttribute="leading" constant="20" id="wfE-pL-FI5"/>
+                            <constraint firstItem="zR7-Py-6Rc" firstAttribute="centerX" secondItem="wJg-V3-eWK" secondAttribute="centerX" id="y0H-ry-N86"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="J4t-5a-Eqw"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Memos" image="mic" catalog="system" selectedImage="mic" id="cgv-F6-V5g"/>
+                    <connections>
+                        <outlet property="playButton" destination="zCV-Gj-xtq" id="MJT-W9-fA2"/>
+                        <outlet property="recordButton" destination="uXv-94-Wce" id="xHy-PS-PaP"/>
+                        <outlet property="stopButton" destination="RQx-cU-glm" id="KfE-9u-1ZD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="naY-gW-bFV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1543" y="0.0"/>
+            <point key="canvasLocation" x="1542.0289855072465" y="0.0"/>
         </scene>
     </scenes>
     <resources>
