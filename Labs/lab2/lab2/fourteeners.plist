@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>mountains</key>
+		<array>
+			<string>Bierstadt</string>
+			<string>Longs Peak</string>
+		</array>
+		<key>range</key>
+		<string>Front Range</string>
+	</dict>
+	<dict>
+		<key>mountains</key>
+		<array/>
+		<key>range</key>
+		<string>Tenmile Range</string>
+	</dict>
+	<dict>
+		<key>mountains</key>
+		<array/>
+		<key>range</key>
+		<string>Mosquito Range</string>
+	</dict>
+	<dict>
+		<key>mountains</key>
+		<array/>
+		<key>range</key>
+		<string>Sawatch Range</string>
+	</dict>
+	<dict>
+		<key>mountains</key>
+		<array/>
+		<key>range</key>
+		<string>Elk Mountains</string>
+	</dict>
+	<dict>
+		<key>mountains</key>
+		<array/>
+		<key>range</key>
+		<string>San Juan Mountains</string>
+	</dict>
+	<dict>
+		<key>mountains</key>
+		<array/>
+		<key>range</key>
+		<string>Sangre de Cristo Range</string>
+	</dict>
+</array>
+</plist>
