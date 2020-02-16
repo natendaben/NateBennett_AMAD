@@ -9,6 +9,7 @@
 import Foundation
 
 struct MountainRange: Codable {
+    var totalNumber: String
     var range: String
     var mountains: [String]
 }
@@ -60,6 +61,10 @@ class MountainRangeController {
     //function to get list of mountains in specific range
     func getMountains(index: Int) -> [String]{
         return mountainRanges[index].mountains
+    }
+    
+    func getTotalMountainsInRange(index: Int) -> String {
+        return mountainRanges[index].totalNumber
     }
     
     //function to add mountain

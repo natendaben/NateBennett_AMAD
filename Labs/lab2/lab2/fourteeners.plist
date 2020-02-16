@@ -3,47 +3,95 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>totalNumber</key>
+		<string>6</string>
 		<key>mountains</key>
 		<array>
-			<string>Bierstadt</string>
+			<string>Mt. Bierstadt</string>
+			<string>Pikes Peak</string>
 			<string>Longs Peak</string>
+			<string>Mt. Evans</string>
+			<string>Grays Peak</string>
+			<string>Torreys Peak</string>
 		</array>
 		<key>range</key>
 		<string>Front Range</string>
 	</dict>
 	<dict>
+		<key>totalNumber</key>
+		<string>1</string>
 		<key>mountains</key>
-		<array/>
+		<array>
+			<string>Quandary Peak</string>
+		</array>
 		<key>range</key>
 		<string>Tenmile Range</string>
 	</dict>
 	<dict>
+		<key>totalNumber</key>
+		<string>5</string>
 		<key>mountains</key>
-		<array/>
+		<array>
+			<string>Mt. Cameron</string>
+			<string>Mt. Lincoln</string>
+			<string>Mt. Democrat</string>
+			<string>Mt. Bross</string>
+		</array>
 		<key>range</key>
 		<string>Mosquito Range</string>
 	</dict>
 	<dict>
+		<key>totalNumber</key>
+		<string>15</string>
 		<key>mountains</key>
-		<array/>
+		<array>
+			<string>Missouri Mountain</string>
+			<string>Mt. of the Holy Cross</string>
+			<string>Huron Peak</string>
+			<string>Mt. Oxford</string>
+			<string>Mt. Yale</string>
+			<string>Mt. Belford</string>
+			<string>Mt. Princeton</string>
+		</array>
 		<key>range</key>
 		<string>Sawatch Range</string>
 	</dict>
 	<dict>
+		<key>totalNumber</key>
+		<string>7</string>
 		<key>mountains</key>
-		<array/>
+		<array>
+			<string>Maroon Peak</string>
+			<string>Capitol Peak</string>
+			<string>North Maroon Peak</string>
+		</array>
 		<key>range</key>
 		<string>Elk Mountains</string>
 	</dict>
 	<dict>
+		<key>totalNumber</key>
+		<string>14</string>
 		<key>mountains</key>
-		<array/>
+		<array>
+			<string>Windom Peak</string>
+			<string>Mt. Eolus</string>
+			<string>Sunlight Peak</string>
+			<string>North Eolus</string>
+		</array>
 		<key>range</key>
 		<string>San Juan Mountains</string>
 	</dict>
 	<dict>
+		<key>totalNumber</key>
+		<string>10</string>
 		<key>mountains</key>
-		<array/>
+		<array>
+			<string>Ellingwood Point</string>
+			<string>Little Bear Peak</string>
+			<string>Blanca Peak</string>
+			<string>Crestone Needle</string>
+			<string>Humboldt Peak</string>
+		</array>
 		<key>range</key>
 		<string>Sangre de Cristo Range</string>
 	</dict>

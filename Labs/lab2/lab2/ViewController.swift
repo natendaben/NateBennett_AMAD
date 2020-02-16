@@ -63,10 +63,25 @@ class ViewController: UITableViewController {
                 nextViewController.mountainRangeController = mountainRangeController
             }
         } else if segue.identifier == "rangeSegue" {
+            //get destination
             let rangeInfoViewController = segue.destination as! RangeInfoTableViewController
+            
+            //get data
             let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
-            rangeInfoViewController.rangeName = mountainRangeList[indexPath!.row]
+            let totalNumberOfMountains = mountainRangeController.getTotalMountainsInRange(index: indexPath!.row)
             let mountainList = mountainRangeController.getMountains(index: indexPath!.row)
+            let numberMountainsClimbed = Float(mountainList.count)
+                
+            //calculate percentage complete for range
+            let totalMountains = Float(totalNumberOfMountains)!
+            let percentageCompleteFloat: Float
+            percentageCompleteFloat = numberMountainsClimbed/totalMountains*100
+            let percentLabelValue = String(format: "%.0f", percentageCompleteFloat) + "%"
+            
+            //send info to range info view controller
+            rangeInfoViewController.percentComplete = percentLabelValue
+            rangeInfoViewController.totalMountains = totalNumberOfMountains
+            rangeInfoViewController.rangeName = mountainRangeList[indexPath!.row]
             rangeInfoViewController.mountainsClimbed = String(mountainList.count)
             rangeInfoViewController.title = mountainRangeList[indexPath!.row]
         }

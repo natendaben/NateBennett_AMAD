@@ -17,7 +17,7 @@ class DetailTableViewController: UITableViewController {
     let resultsController = SearchResultsController()
     
     override func viewWillAppear(_ animated: Bool) {
-        extendedLayoutIncludesOpaqueBars = true
+        //extendedLayoutIncludesOpaqueBars = true
         navigationItem.largeTitleDisplayMode = .never
 
         mountainList = mountainRangeController.getMountains(index: selectedRange)
