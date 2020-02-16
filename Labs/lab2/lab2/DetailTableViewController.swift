@@ -13,17 +13,26 @@ class DetailTableViewController: UITableViewController {
     var mountainList = [String]()
     var selectedRange = 0
 
+    var searchController = UISearchController()
+    let resultsController = SearchResultsController()
+    
     override func viewWillAppear(_ animated: Bool) {
+        extendedLayoutIncludesOpaqueBars = true
+        navigationItem.largeTitleDisplayMode = .never
+
         mountainList = mountainRangeController.getMountains(index: selectedRange)
+        
+        resultsController.allMountains = mountainList
+        searchController = UISearchController(searchResultsController: resultsController)
+        
+        searchController.searchBar.placeholder = "Filter"
+        searchController.searchBar.sizeToFit()
+        
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchResultsUpdater = resultsController
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         //self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -96,6 +105,8 @@ class DetailTableViewController: UITableViewController {
                 mountainList.append(source.mountainName)
                 //refresh table
                 tableView.reloadData()
+                //refresh search controller
+                resultsController.allMountains = mountainList
             }
         }
     }

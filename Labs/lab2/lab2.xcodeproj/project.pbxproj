@@ -18,6 +18,7 @@
 		C1BA4E8C23F91C4500DCCA0A /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA4E8B23F91C4500DCCA0A /* DetailTableViewController.swift */; };
 		C1BA4E8E23F9B75900DCCA0A /* AddMountainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA4E8D23F9B75900DCCA0A /* AddMountainViewController.swift */; };
 		C1BA4E9023F9BEE000DCCA0A /* RangeInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA4E8F23F9BEE000DCCA0A /* RangeInfoTableViewController.swift */; };
+		C1BA4E9223F9CB3E00DCCA0A /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA4E9123F9CB3E00DCCA0A /* SearchResultsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C1BA4E8B23F91C4500DCCA0A /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		C1BA4E8D23F9B75900DCCA0A /* AddMountainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMountainViewController.swift; sourceTree = "<group>"; };
 		C1BA4E8F23F9BEE000DCCA0A /* RangeInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeInfoTableViewController.swift; sourceTree = "<group>"; };
+		C1BA4E9123F9CB3E00DCCA0A /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				C1BA4E7323F8FFC200DCCA0A /* AppDelegate.swift */,
 				C1BA4E7523F8FFC200DCCA0A /* SceneDelegate.swift */,
 				C1BA4E7723F8FFC200DCCA0A /* ViewController.swift */,
+				C1BA4E9123F9CB3E00DCCA0A /* SearchResultsController.swift */,
 				C1BA4E7923F8FFC200DCCA0A /* Main.storyboard */,
 				C1BA4E8F23F9BEE000DCCA0A /* RangeInfoTableViewController.swift */,
 				C1BA4E8D23F9B75900DCCA0A /* AddMountainViewController.swift */,
@@ -158,6 +161,7 @@
 				C1BA4E8C23F91C4500DCCA0A /* DetailTableViewController.swift in Sources */,
 				C1BA4E7423F8FFC200DCCA0A /* AppDelegate.swift in Sources */,
 				C1BA4E8A23F90ED200DCCA0A /* MountainRange.swift in Sources */,
+				C1BA4E9223F9CB3E00DCCA0A /* SearchResultsController.swift in Sources */,
 				C1BA4E7623F8FFC200DCCA0A /* SceneDelegate.swift in Sources */,
 				C1BA4E8E23F9B75900DCCA0A /* AddMountainViewController.swift in Sources */,
 				C1BA4E9023F9BEE000DCCA0A /* RangeInfoTableViewController.swift in Sources */,
