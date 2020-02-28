@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Arches</string>
+		<key>imageName</key>
+		<string>arches</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Black Canyon</string>
+		<key>imageName</key>
+		<string>blackcanyon</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Canyonlands</string>
+		<key>imageName</key>
+		<string>canyonlands</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Grand Canyon</string>
+		<key>imageName</key>
+		<string>grandcanyon</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Haleakala</string>
+		<key>imageName</key>
+		<string>haleakala</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Joshua Tree</string>
+		<key>imageName</key>
+		<string>joshuatree</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Rocky Mountain</string>
+		<key>imageName</key>
+		<string>rockymountain</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Great Sand Dunes</string>
+		<key>imageName</key>
+		<string>sanddunes</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Grand Teton</string>
+		<key>imageName</key>
+		<string>tetons</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Denali</string>
+		<key>imageName</key>
+		<string>denali</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Glacier</string>
+		<key>imageName</key>
+		<string>glacier</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Mammoth Cave</string>
+		<key>imageName</key>
+		<string>mammoth</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Mesa Verde</string>
+		<key>imageName</key>
+		<string>mesaverde</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Yellowstone</string>
+		<key>imageName</key>
+		<string>yellowstone</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Yosemite</string>
+		<key>imageName</key>
+		<string>yosemite</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Zion</string>
+		<key>imageName</key>
+		<string>zion</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Crater Lake</string>
+		<key>imageName</key>
+		<string>craterlake</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Everglades</string>
+		<key>imageName</key>
+		<string>everglades</string>
+	</dict>
+</array>
+</plist>
