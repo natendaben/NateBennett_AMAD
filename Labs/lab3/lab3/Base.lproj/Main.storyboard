@@ -122,7 +122,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wl0-CG-h4U"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Selected Park" id="gBN-nf-L3M"/>
+                    <navigationItem key="navigationItem" title="Selected Park" id="gBN-nf-L3M">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="6rt-7E-l7D">
+                            <connections>
+                                <action selector="share:" destination="EnH-xt-fKW" id="CzP-G7-3uS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="parkImage" destination="QFI-W0-Xqf" id="xNY-HI-5NB"/>
                     </connections>
@@ -150,4 +156,7 @@
             <point key="canvasLocation" x="69.565217391304358" y="122.54464285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
+    </resources>
 </document>

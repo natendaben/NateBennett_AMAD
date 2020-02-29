@@ -14,6 +14,15 @@ class DetailViewController: UIViewController {
     
     var imageName: String?
     
+    @IBAction func share(_ sender: Any) {
+        var imageArray = [UIImage]()
+        imageArray.append(parkImage.image!)
+        
+        let sharePopup = UIActivityViewController(activityItems: imageArray, applicationActivities: nil)
+        sharePopup.modalPresentationStyle = .popover
+        present(sharePopup, animated: true, completion: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         if let imgName = imageName {
             parkImage.image = UIImage(named: imgName)
