@@ -21,7 +21,7 @@ class RouteDataController {
     
     //make JSON request based one which area is selected
     func loadJSON(lat: String, long: String) throws {
-        //construct URL
+        //construct URL for Mountain Project API
         let urlPath = "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=\(lat)&lon=\(long)&maxDistance=2&minDiff=5.6&maxDiff=5.11c&maxResults=17&key=111604789-31b97449a8120ab87ebd2362e456780c"
         //use guard statement to make sure url is valid
         guard let url = URL(string: urlPath) else {
