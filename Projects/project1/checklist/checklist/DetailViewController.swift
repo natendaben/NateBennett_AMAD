@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     var mountainRangeIndex = 0
     var mountainIndex = 0
     
+    @IBOutlet weak var peakImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var rangeLabel: UILabel!
     @IBOutlet weak var elevationLabel: UILabel!
@@ -26,8 +27,8 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         mountain = mountainDataController.getMountain(rangeIndex: mountainRangeIndex, mountainIndex: mountainIndex)
-        print("Mountain notes: \(mountain?.notes)")
-        print("Mountain ticks: \(mountain?.ticks)")
+        //print("Mountain notes: \(mountain?.notes)")
+        //print("Mountain ticks: \(mountain?.ticks)")
         nameLabel.text = mountain?.name
         elevationLabel.text = mountain?.elevation
         notesView.text = mountain?.notes
@@ -41,7 +42,29 @@ class DetailViewController: UIViewController {
             ticksLabel.text = "Climbed \(mountain?.ticks ?? 0) times"
         }
         rankLabel.text = "\(mountain?.rank ?? 0)"
+        peakImage.image = UIImage(named: mountain!.imageName)
+        var classColor = UIColor()
+        switch mountain?.peakClass {
+        case 1:
+            classColor = UIColor(named: "C1")!
+            print("C1")
+        case 2:
+            classColor = UIColor(named: "C2")!
+            print("C2")
+        case 3:
+            classColor = UIColor(named: "C3")!
+            print("C3")
+        case 4:
+            classColor = UIColor(named: "C4")!
+            print("C4")
+        case 5:
+            classColor = UIColor(named: "C5")!
+            print("C5")
+        default:
+            classColor = UIColor(named: "C1")!
+        }
         
+        classLabel.layer.backgroundColor = classColor.cgColor
     }
     
     override func viewDidLoad() {
@@ -61,14 +84,16 @@ class DetailViewController: UIViewController {
             notesView.text = source.notes
         }
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "editMountain" {
+            let dest = segue.destination as! EditMountainViewController
+            dest.mountain = mountainDataController.getMountain(rangeIndex: mountainRangeIndex, mountainIndex: mountainIndex)
+            dest.rangeName = rangeName
+        }
     }
-    */
 
 }

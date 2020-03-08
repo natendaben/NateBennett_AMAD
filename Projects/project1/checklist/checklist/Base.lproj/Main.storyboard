@@ -3,6 +3,7 @@
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -58,8 +59,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="# 14ers Climbed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0q0-ew-Xu1">
-                                                    <rect key="frame" x="19.999999999999993" y="11.999999999999998" width="124.33333333333333" height="20.333333333333332"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="# 14ers Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0q0-ew-Xu1">
+                                                    <rect key="frame" x="19.999999999999993" y="11.999999999999998" width="98.333333333333329" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -82,8 +83,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="# 14ers Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X4Z-53-db4">
-                                                    <rect key="frame" x="19.999999999999993" y="11.999999999999998" width="98.333333333333329" height="20.333333333333332"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="# 14ers Climbed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X4Z-53-db4">
+                                                    <rect key="frame" x="19.999999999999993" y="11.999999999999998" width="124.33333333333333" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -106,8 +107,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="% 14ers Climbed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9C0-Ng-Qlp">
-                                                    <rect key="frame" x="20" y="11.999999999999998" width="128" height="20.333333333333332"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="% Range Climbed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9C0-Ng-Qlp">
+                                                    <rect key="frame" x="20" y="11.999999999999998" width="134.66666666666666" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -200,15 +201,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SwU-Ct-b5e">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SwU-Ct-b5e">
                                 <rect key="frame" x="0.0" y="88" width="414" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="kTx-Qf-yQY"/>
                                 </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHC-J3-Aog">
                                 <rect key="frame" x="20" y="288" width="374" height="20.333333333333314"/>
-                                <color key="backgroundColor" red="0.23921568630000001" green="0.69411764710000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="C3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -310,7 +312,7 @@
                     <navigationItem key="navigationItem" id="drK-T3-1jc">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="FAo-Qh-wXk">
                             <connections>
-                                <segue destination="n5I-S0-Ytf" kind="presentation" id="k8q-bd-fzm"/>
+                                <segue destination="n5I-S0-Ytf" kind="presentation" identifier="editMountain" id="k8q-bd-fzm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -319,6 +321,7 @@
                         <outlet property="elevationLabel" destination="ADK-pb-etg" id="0pe-Gf-Iyk"/>
                         <outlet property="nameLabel" destination="pl2-Pn-TTs" id="TZR-9p-KY7"/>
                         <outlet property="notesView" destination="7r5-mb-NLd" id="F3r-F7-43Y"/>
+                        <outlet property="peakImage" destination="SwU-Ct-b5e" id="nQa-io-WzC"/>
                         <outlet property="rangeLabel" destination="pWh-C4-mQ3" id="QpO-Nb-AB6"/>
                         <outlet property="rankLabel" destination="zob-9e-TCc" id="zw2-xy-FkH"/>
                         <outlet property="ticksLabel" destination="Agk-p1-HzS" id="7Di-81-TaQ"/>
@@ -336,7 +339,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qyf-89-FGm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qyf-89-FGm">
                                 <rect key="frame" x="0.0" y="56" width="414" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="XAf-4x-7BS"/>
@@ -445,6 +448,7 @@
                     <connections>
                         <outlet property="nameLabel" destination="aWT-hH-eGt" id="f3Z-tG-D9K"/>
                         <outlet property="notesView" destination="j9A-A0-0CV" id="gF0-t5-IpE"/>
+                        <outlet property="peakImage" destination="qyf-89-FGm" id="zxf-bS-mcf"/>
                         <outlet property="rangeLabel" destination="cdY-9m-vEC" id="Jz1-pb-R1T"/>
                         <outlet property="stepper" destination="lkL-j9-PlL" id="cUX-Wn-IhD"/>
                         <outlet property="ticksLabel" destination="dIu-Qh-S2E" id="G6c-0a-dMf"/>
@@ -474,4 +478,9 @@
             <point key="canvasLocation" x="173.91304347826087" y="155.35714285714286"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="C3">
+            <color red="0.792156862745098" green="0.027450980392156862" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

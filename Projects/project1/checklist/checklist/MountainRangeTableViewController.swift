@@ -94,8 +94,32 @@ class MountainRangeTableViewController: UITableViewController {
             let dest = segue.destination as! RangeInfoTableViewController
             let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
             if let selectedRange = indexPath?.row {
+                let range = mountainDataController.getMountainRange(rangeIndex: selectedRange)
+                let totalNumberOfMountains = Float(range.totalNumber)!
+                let mountainList = mountainDataController.getMountainsInRange(index: selectedRange)
+                var climbedMountains = [Mountain]()
+                for mountain in mountainList { //check how many mountains have been climbed
+                    if mountain.ticks > 0 {
+                        climbedMountains.append(mountain)
+                    }
+                }
+                let numberOfMountainsClimbed = Float(climbedMountains.count)
+                let percentageCompleteFloat: Float
+                if totalNumberOfMountains > 0 {
+                    percentageCompleteFloat = numberOfMountainsClimbed/totalNumberOfMountains * 100
+                    
+                } else {
+                    print("Number of mountains in range is 0")
+                    percentageCompleteFloat = 0.0
+                }
+                let percentLabelValue = String(format: "%.0f", percentageCompleteFloat) + "%"
+                
+                //send data to range info view controller
                 dest.title = "\(mountainRangeList[selectedRange]) Stats"
-                dest.nameString = mountainRangeList[selectedRange]
+
+                dest.percentComplete = percentLabelValue
+                dest.totalMountains = String(format: "%.0f", totalNumberOfMountains)
+                dest.mountainsClimbed = String(climbedMountains.count)
             }
         }
     }

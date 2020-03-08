@@ -16,12 +16,16 @@ class RangeInfoTableViewController: UITableViewController {
     @IBOutlet weak var numberClimbedLabel: UILabel!
     @IBOutlet weak var percentCompleteLabel: UILabel!
     
-    var nameString = String()
-    var totalNumber = Int()
-    var numberClimbed = Int()
-    var percentComplete = Float()
+    var rangeName = String()
+    var totalMountains = String()
+    var mountainsClimbed = String()
+    var percentComplete = String()
     
     override func viewWillAppear(_ animated: Bool) {
+        totalNumberLabel.text = totalMountains
+        percentCompleteLabel.text = mountainsClimbed
+        percentCompleteLabel.text = percentComplete
+        numberClimbedLabel.text = mountainsClimbed
     }
     
     override func viewDidLoad() {

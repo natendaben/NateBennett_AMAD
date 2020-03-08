@@ -68,6 +68,10 @@ class MountainDataController {
         }
     }
     
+    func getMountainRange(rangeIndex: Int) -> MountainRange {
+        return mountainRanges[rangeIndex]
+    }
+    
     //function to get list of mountain ranges
     func getMountainRangeList() -> [String]{
         var mountainRangeList = [String]() //make empty array for storing ranges
@@ -87,24 +91,14 @@ class MountainDataController {
         return newList
     }
     
+    func getMountainsInRange(index: Int) -> [Mountain] {
+        return mountainRanges[index].mountains
+    }
+    
     func getMountain(rangeIndex: Int, mountainIndex: Int) -> Mountain {
         let mountain = mountainRanges[rangeIndex].mountains[mountainIndex]
         return mountain
     }
-    
-    func getTotalMountainsInRange(index: Int) -> String {
-        return mountainRanges[index].totalNumber
-    }
-    
-    //function to add mountain
-//    func addMountain(rangeIndex: Int, mountain: String, mountainIndex: Int){
-//        mountainRanges[rangeIndex].mountains.insert(mountain, at: mountainIndex)
-//    }
-    
-//    //function to remove mountain
-//    func removeMountain(rangeIndex: Int, mountainIndex: Int){
-//        mountainRanges[rangeIndex].mountains.remove(at: mountainIndex)
-//    }
     
     //for data persistence
     func getDataFile(dataFile: String) -> URL {
@@ -134,12 +128,11 @@ class MountainDataController {
     
     func updateMountainInfo(notes: String, ticks: Int, mountainIndex: Int, rangeIndex: Int){
         var mountain = mountainRanges[rangeIndex].mountains[mountainIndex]
-        print("Old notes: \(mountain.notes)")
+        //print("Old notes: \(mountain.notes)")
         mountain.notes = notes
         mountain.ticks = ticks
         mountainRanges[rangeIndex].mountains[mountainIndex] = mountain
-        print("New notes: \(mountain.notes)")
-        print("New notes again: \(mountainRanges[rangeIndex].mountains[mountainIndex].notes)")
-        
+        //print("New notes: \(mountain.notes)")
+        //print("New notes again: \(mountainRanges[rangeIndex].mountains[mountainIndex].notes)")
     }
 }
