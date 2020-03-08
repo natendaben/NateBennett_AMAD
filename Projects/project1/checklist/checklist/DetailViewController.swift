@@ -69,7 +69,10 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let grey = UIColor(red: 100.0/255.0, green: 100.0/255.0, blue: 100.0/255.0, alpha: 0.1)
+        notesView.backgroundColor = grey
+        notesView.layer.masksToBounds = true
+        notesView.layer.cornerRadius = 5
     }
     
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue){

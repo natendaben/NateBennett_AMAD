@@ -13,7 +13,7 @@
 				<key>rank</key>
 				<integer>0</integer>
 				<key>notes</key>
-				<string></string>
+				<string>Add notes...</string>
 				<key>peakClass</key>
 				<integer>2</integer>
 				<key>ticks</key>
