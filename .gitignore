@@ -7,6 +7,10 @@
 *.apk
 *.ap_
 
+#Firebase Config Files
+GoogleService-Info.plist
+Pods/
+
 # Files for the ART/Dalvik VM
 *.dex
 

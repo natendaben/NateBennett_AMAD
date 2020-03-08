@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>totalNumber</key>
+		<string>6</string>
+		<key>mountains</key>
+		<array>
+			<dict>
+				<key>imageName</key>
+				<string></string>
+				<key>rank</key>
+				<integer>0</integer>
+				<key>notes</key>
+				<string></string>
+				<key>peakClass</key>
+				<integer>2</integer>
+				<key>ticks</key>
+				<integer>0</integer>
+				<key>elevation</key>
+				<string>14,423</string>
+				<key>name</key>
+				<string>Bierstadt</string>
+			</dict>
+		</array>
+		<key>range</key>
+		<string>Front Range</string>
+	</dict>
+</array>
+</plist>
