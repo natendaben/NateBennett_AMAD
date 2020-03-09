@@ -48,11 +48,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mtn" id="fXB-ox-lyu">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <sections>
                             <tableViewSection headerTitle="Range Info" id="uJD-oi-gUy">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="0q0-ew-Xu1" detailTextLabel="zcI-2f-rz3" style="IBUITableViewCellStyleValue1" id="r1U-4e-Zxu">
-                                        <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="99.333332061767578" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r1U-4e-Zxu" id="1mh-eT-iOS">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -76,7 +80,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="X4Z-53-db4" detailTextLabel="RPy-TE-6Za" style="IBUITableViewCellStyleValue1" id="NJf-Xz-d0n">
-                                        <rect key="frame" x="0.0" y="98.833332061767578" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="142.83333206176758" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NJf-Xz-d0n" id="gBa-eN-BCz">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -100,7 +104,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="9C0-Ng-Qlp" detailTextLabel="xYn-uK-NL5" style="IBUITableViewCellStyleValue1" id="12c-yO-YYf">
-                                        <rect key="frame" x="0.0" y="142.33333206176758" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="186.33333206176758" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="12c-yO-YYf" id="nSM-dA-bkq">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -607,5 +611,6 @@
     </scenes>
     <resources>
         <image name="check" width="501" height="501"/>
+        <image name="mtn" width="1956" height="374"/>
     </resources>
 </document>

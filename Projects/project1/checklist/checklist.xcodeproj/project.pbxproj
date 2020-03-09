@@ -27,7 +27,7 @@
 		C106BC3E24116B01008AF43A /* MountainRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MountainRange.swift; sourceTree = "<group>"; };
 		C106BC4024116DE5008AF43A /* MountainListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListTableViewController.swift; sourceTree = "<group>"; };
 		C106BC42241171C4008AF43A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		C1D6D7D424072F190067C631 /* checklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = checklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1D6D7D424072F190067C631 /* 14ers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 14ers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D6D7D724072F190067C631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D6D7D924072F190067C631 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C1D6D7DE24072F190067C631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		C1D6D7D524072F190067C631 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C1D6D7D424072F190067C631 /* checklist.app */,
+				C1D6D7D424072F190067C631 /* 14ers.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,7 +102,7 @@
 			);
 			name = checklist;
 			productName = checklist;
-			productReference = C1D6D7D424072F190067C631 /* checklist.app */;
+			productReference = C1D6D7D424072F190067C631 /* 14ers.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -316,7 +316,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = natebennett.checklist;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = 14ers;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -334,7 +334,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = natebennett.checklist;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = 14ers;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

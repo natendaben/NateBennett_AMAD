@@ -6,17 +6,20 @@
 //  Copyright © 2020 Nathanael Bennett. All rights reserved.
 //
 
+//View Mountain Ranges Screen
+
 import UIKit
 
 class MountainRangeTableViewController: UITableViewController {
     
+    //variables
     var mountainRangeList = [String]()
     let mountainDataController = MountainDataController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // load mountain range data
+        //load mountain range data
         do {
             try mountainDataController.loadData()
             mountainRangeList = mountainDataController.getMountainRangeList()
@@ -24,7 +27,9 @@ class MountainRangeTableViewController: UITableViewController {
             print("Problem loading data")
             print(error)
         }
-        navigationController?.navigationBar.prefersLargeTitles = true //enable large title
+        
+        //enable large titles
+        navigationController?.navigationBar.prefersLargeTitles = true
 
     }
 
@@ -40,85 +45,68 @@ class MountainRangeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MountainRangeCell", for: indexPath)
 
+        //set text for mountain range name
         cell.textLabel?.text = mountainRangeList[indexPath.row]
 
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectMountainRangeSegue" {
+            
+            //get destination
             let dest = segue.destination as! MountainListTableViewController
+            
+            //get index path
             let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
             if let selectedRange = indexPath?.row {
+                
+                //send info to mountain range viewing screen
                 dest.title = mountainRangeList[selectedRange]
                 dest.selectedMountainRange = selectedRange
                 dest.mountainDataController = mountainDataController
             }
         } else if segue.identifier == "RangeInfoSegue" {
+            
+            //get destination
             let dest = segue.destination as! RangeInfoTableViewController
+            
+            //get index path
             let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
             if let selectedRange = indexPath?.row {
+                
+                //do some calculations to figure out total number of mountains, mountains climbed, and percentage of mountains climbed in that range...
+                //get range
                 let range = mountainDataController.getMountainRange(rangeIndex: selectedRange)
+                //get total number of mountains in range
                 let totalNumberOfMountains = Float(range.totalNumber)!
+                //get mountain list for that range
                 let mountainList = mountainDataController.getMountainsInRange(index: selectedRange)
+                //set up new empty array for climbed mountains
                 var climbedMountains = [Mountain]()
-                for mountain in mountainList { //check how many mountains have been climbed
-                    if mountain.ticks > 0 {
-                        climbedMountains.append(mountain)
+                //check how many mountains in range have been climbed
+                for mountain in mountainList {
+                    if mountain.ticks > 0 { //if mountain has been climbed
+                        climbedMountains.append(mountain) //add it to climbed mountains array
                     }
                 }
+                //get climbed mountains count
                 let numberOfMountainsClimbed = Float(climbedMountains.count)
+                //set up percentage variable
                 let percentageCompleteFloat: Float
+                //check to make sure we aren't dividing by 0
                 if totalNumberOfMountains > 0 {
                     percentageCompleteFloat = numberOfMountainsClimbed/totalNumberOfMountains * 100
-                    
                 } else {
                     print("Number of mountains in range is 0")
                     percentageCompleteFloat = 0.0
                 }
+                //format string for percent of range climbed
                 let percentLabelValue = String(format: "%.0f", percentageCompleteFloat) + "%"
                 
                 //send data to range info view controller
                 dest.title = "\(mountainRangeList[selectedRange]) Stats"
-
                 dest.percentComplete = percentLabelValue
                 dest.totalMountains = String(format: "%.0f", totalNumberOfMountains)
                 dest.mountainsClimbed = String(climbedMountains.count)

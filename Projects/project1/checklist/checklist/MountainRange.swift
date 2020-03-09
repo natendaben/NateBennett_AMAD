@@ -6,15 +6,18 @@
 //  Copyright © 2020 Nathanael Bennett. All rights reserved.
 //
 
+//Data Controller File
 import Foundation
 import UIKit
 
+//mountain range struct
 struct MountainRange: Codable {
     var totalNumber: String
     var range: String
     var mountains: [Mountain]
 }
 
+//mountain struct
 struct Mountain: Codable {
     var name: String
     var elevation: String
@@ -23,15 +26,16 @@ struct Mountain: Codable {
     var notes: String
     var peakClass: Int
     var ticks: Int
-    
 }
 
+//enum for data errors
 enum DataError: Error {
     case ProblemDecoding
     case ProblemWithDataFile
     case ProblemEncoding
 }
 
+//class to handle loading, writing and updating data
 class MountainDataController {
     var mountainRanges = [MountainRange]() //create array of mountain ranges
     let filename = "fourteeners"
@@ -91,10 +95,12 @@ class MountainDataController {
         return newList
     }
     
+    //function to get array of mountains in range
     func getMountainsInRange(index: Int) -> [Mountain] {
         return mountainRanges[index].mountains
     }
     
+    //function to get specific mountain object
     func getMountain(rangeIndex: Int, mountainIndex: Int) -> Mountain {
         let mountain = mountainRanges[rangeIndex].mountains[mountainIndex]
         return mountain
@@ -109,6 +115,7 @@ class MountainDataController {
         return docDirectory.appendingPathComponent(dataFile)
     }
     
+    //function for writing data to file
     @objc func writeData(_ notification: NSNotification) throws {
         print("Writing data to \(dataFilename)")
         let dataFileURL = getDataFile(dataFile: dataFilename)
@@ -123,16 +130,16 @@ class MountainDataController {
             print(error)
             throw DataError.ProblemEncoding
         }
-        
     }
     
+    //function for updating info for specific mountain
     func updateMountainInfo(notes: String, ticks: Int, mountainIndex: Int, rangeIndex: Int){
+        //grab current mountain object
         var mountain = mountainRanges[rangeIndex].mountains[mountainIndex]
-        //print("Old notes: \(mountain.notes)")
+        //update notes and ticks in new object
         mountain.notes = notes
         mountain.ticks = ticks
+        //set old mountain to new one to update data
         mountainRanges[rangeIndex].mountains[mountainIndex] = mountain
-        //print("New notes: \(mountain.notes)")
-        //print("New notes again: \(mountainRanges[rangeIndex].mountains[mountainIndex].notes)")
     }
 }
