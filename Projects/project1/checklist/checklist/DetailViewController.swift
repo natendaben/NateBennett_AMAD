@@ -70,9 +70,13 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let grey = UIColor(red: 100.0/255.0, green: 100.0/255.0, blue: 100.0/255.0, alpha: 0.1)
-        notesView.backgroundColor = grey
+//        notesView.layer.borderColor = grey.cgColor
+//        notesView.layer.borderWidth = CGFloat(2.0)
         notesView.layer.masksToBounds = true
         notesView.layer.cornerRadius = 5
+        notesView.backgroundColor = grey
+        navigationController?.navigationBar.prefersLargeTitles = true //enable large title
+
     }
     
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue){

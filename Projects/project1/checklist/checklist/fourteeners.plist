@@ -11,7 +11,7 @@
 				<key>imageName</key>
 				<string>bierstadt</string>
 				<key>rank</key>
-				<integer>0</integer>
+				<integer>38</integer>
 				<key>notes</key>
 				<string>Add notes...</string>
 				<key>peakClass</key>
@@ -19,9 +19,9 @@
 				<key>ticks</key>
 				<integer>0</integer>
 				<key>elevation</key>
-				<string>14,423</string>
+				<string>14,060</string>
 				<key>name</key>
-				<string>Bierstadt</string>
+				<string>Mt. Bierstadt</string>
 			</dict>
 		</array>
 		<key>range</key>

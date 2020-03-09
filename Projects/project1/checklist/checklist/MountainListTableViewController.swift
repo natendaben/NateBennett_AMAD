@@ -70,7 +70,7 @@ class MountainListTableViewController: UITableViewController {
             let dest = segue.destination as! DetailViewController
             let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
             if let selectedMountain = indexPath?.row {
-                dest.title = mountainList[selectedMountain]
+//                dest.title = mountainList[selectedMountain]
                 dest.rangeName = mountainRange
                 dest.mountainDataController = mountainDataController
                 dest.mountainIndex = selectedMountain

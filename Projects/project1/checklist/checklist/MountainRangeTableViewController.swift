@@ -24,6 +24,8 @@ class MountainRangeTableViewController: UITableViewController {
             print("Problem loading data")
             print(error)
         }
+        navigationController?.navigationBar.prefersLargeTitles = true //enable large title
+
     }
 
     // MARK: - Table view data source
