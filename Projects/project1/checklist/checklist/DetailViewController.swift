@@ -89,6 +89,8 @@ class DetailViewController: UIViewController {
                 ticksLabel.text = "Climbed \(source.ticks) times"
             }
             notesView.text = source.notes
+            let mountain = mountainDataController.getMountain(rangeIndex: mountainRangeIndex, mountainIndex: mountainIndex)
+            print("ticks = \(mountain.ticks)")
         }
     }
     

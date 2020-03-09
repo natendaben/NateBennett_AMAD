@@ -23,6 +23,86 @@
 				<key>name</key>
 				<string>Mt. Bierstadt</string>
 			</dict>
+			<dict>
+				<key>imageName</key>
+				<string>grays</string>
+				<key>rank</key>
+				<integer>9</integer>
+				<key>notes</key>
+				<string>Add notes...</string>
+				<key>peakClass</key>
+				<integer>1</integer>
+				<key>ticks</key>
+				<integer>0</integer>
+				<key>elevation</key>
+				<string>14,270</string>
+				<key>name</key>
+				<string>Grays Peak</string>
+			</dict>
+			<dict>
+				<key>imageName</key>
+				<string>torreys</string>
+				<key>rank</key>
+				<integer>11</integer>
+				<key>notes</key>
+				<string>Add notes...</string>
+				<key>peakClass</key>
+				<integer>2</integer>
+				<key>ticks</key>
+				<integer>0</integer>
+				<key>elevation</key>
+				<string>14,267</string>
+				<key>name</key>
+				<string>Torreys Peak</string>
+			</dict>
+			<dict>
+				<key>imageName</key>
+				<string>longs</string>
+				<key>rank</key>
+				<integer>15</integer>
+				<key>notes</key>
+				<string>Add notes...</string>
+				<key>peakClass</key>
+				<integer>3</integer>
+				<key>ticks</key>
+				<integer>0</integer>
+				<key>elevation</key>
+				<string>14,255</string>
+				<key>name</key>
+				<string>Longs Peak</string>
+			</dict>
+			<dict>
+				<key>imageName</key>
+				<string>evans</string>
+				<key>rank</key>
+				<integer>14</integer>
+				<key>notes</key>
+				<string>Add notes...</string>
+				<key>peakClass</key>
+				<integer>2</integer>
+				<key>ticks</key>
+				<integer>0</integer>
+				<key>elevation</key>
+				<string>14,264</string>
+				<key>name</key>
+				<string>Mt. Evans</string>
+			</dict>
+			<dict>
+				<key>imageName</key>
+				<string>pikes</string>
+				<key>rank</key>
+				<integer>30</integer>
+				<key>notes</key>
+				<string>Add notes...</string>
+				<key>peakClass</key>
+				<integer>1</integer>
+				<key>ticks</key>
+				<integer>0</integer>
+				<key>elevation</key>
+				<string>14,110</string>
+				<key>name</key>
+				<string>Pikes Peak</string>
+			</dict>
 		</array>
 		<key>range</key>
 		<string>Front Range</string>

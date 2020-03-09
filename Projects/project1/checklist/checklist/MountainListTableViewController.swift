@@ -14,21 +14,19 @@ class MountainListTableViewController: UITableViewController {
     var mountainDataController = MountainDataController()
     var selectedMountainRange = 0
     var mountainRange = ""
-    
+    var mountainArray = [Mountain]()
+
     override func viewWillAppear(_ animated: Bool) {
         mountainList = mountainDataController.getMountainListForRange(index: selectedMountainRange)
         let rangeList = mountainDataController.getMountainRangeList()
         mountainRange = rangeList[selectedMountainRange]
+        mountainArray = mountainDataController.getMountainsInRange(index: selectedMountainRange)
+        tableView.reloadData()
+        print("Table view reloaded")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -44,22 +42,16 @@ class MountainListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MountainCell", for: indexPath)
 
+        let mountain = mountainArray[indexPath.row]
+        if mountain.ticks == 0 {
+            cell.imageView?.image = UIImage(named: "blank")
+        } else {
+            cell.imageView?.image = UIImage(named: "check")
+        }
         cell.textLabel?.text = mountainList[indexPath.row]
+        print("\(mountain.name) has \(mountain.ticks) ticks")
 
         return cell
-    }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
     }
 
     // MARK: - Navigation
@@ -78,5 +70,6 @@ class MountainListTableViewController: UITableViewController {
             }
         }
     }
+    
 
 }
