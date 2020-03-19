@@ -14,10 +14,11 @@
 		C13859852422DFA900B4E898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C13859842422DFA900B4E898 /* Assets.xcassets */; };
 		C13859882422DFA900B4E898 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C13859862422DFA900B4E898 /* LaunchScreen.storyboard */; };
 		C13859902422E25600B4E898 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C138598F2422E25600B4E898 /* GoogleService-Info.plist */; };
+		C178485524233017001788C4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C178485424233017001788C4 /* SignInViewController.swift */; };
+		C19362CA24232BE20073CB2A /* ViewLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19362C924232BE20073CB2A /* ViewLogTableViewController.swift */; };
 		C1B4886B242316A6001740A9 /* SleepLogsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4886A242316A6001740A9 /* SleepLogsTableViewController.swift */; };
 		C1B4886D242316B3001740A9 /* AddLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4886C242316B3001740A9 /* AddLogViewController.swift */; };
 		C1B4886F242317AC001740A9 /* LogDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4886E242317AC001740A9 /* LogDataController.swift */; };
-		C1B48873242328CE001740A9 /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B48872242328CE001740A9 /* LogTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,10 +30,11 @@
 		C13859872422DFA900B4E898 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C13859892422DFA900B4E898 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C138598F2422E25600B4E898 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C178485424233017001788C4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		C19362C924232BE20073CB2A /* ViewLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLogTableViewController.swift; sourceTree = "<group>"; };
 		C1B4886A242316A6001740A9 /* SleepLogsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepLogsTableViewController.swift; sourceTree = "<group>"; };
 		C1B4886C242316B3001740A9 /* AddLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogViewController.swift; sourceTree = "<group>"; };
 		C1B4886E242317AC001740A9 /* LogDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDataController.swift; sourceTree = "<group>"; };
-		C1B48872242328CE001740A9 /* LogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogTableViewController.swift; path = "/Users/nathanaelbennett/Documents/College/Senior Year/Spring/Advanced Mobile App Development/NateBennett_AMAD/Labs/lab5/lab5/LogTableViewController.swift"; sourceTree = "<absolute>"; };
 		CA5323946B35BD5B8B9D047F /* Pods-lab5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab5.release.xcconfig"; path = "Target Support Files/Pods-lab5/Pods-lab5.release.xcconfig"; sourceTree = "<group>"; };
 		E45456A793F13904DC9980E1 /* Pods-lab5.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab5.debug.xcconfig"; path = "Target Support Files/Pods-lab5/Pods-lab5.debug.xcconfig"; sourceTree = "<group>"; };
 		FBF8603745598E84BF69A369 /* Pods_lab5.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab5.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,10 +90,11 @@
 		C138597A2422DFA700B4E898 /* lab5 */ = {
 			isa = PBXGroup;
 			children = (
-				C1B48872242328CE001740A9 /* LogTableViewController.swift */,
+				C178485424233017001788C4 /* SignInViewController.swift */,
 				C138597B2422DFA700B4E898 /* AppDelegate.swift */,
 				C138597D2422DFA700B4E898 /* SceneDelegate.swift */,
 				C13859812422DFA700B4E898 /* Main.storyboard */,
+				C19362C924232BE20073CB2A /* ViewLogTableViewController.swift */,
 				C1B4886E242317AC001740A9 /* LogDataController.swift */,
 				C1B4886A242316A6001740A9 /* SleepLogsTableViewController.swift */,
 				C1B4886C242316B3001740A9 /* AddLogViewController.swift */,
@@ -237,9 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1B48873242328CE001740A9 /* LogTableViewController.swift in Sources */,
+				C178485524233017001788C4 /* SignInViewController.swift in Sources */,
 				C138597C2422DFA700B4E898 /* AppDelegate.swift in Sources */,
 				C138597E2422DFA700B4E898 /* SceneDelegate.swift in Sources */,
+				C19362CA24232BE20073CB2A /* ViewLogTableViewController.swift in Sources */,
 				C1B4886F242317AC001740A9 /* LogDataController.swift in Sources */,
 				C1B4886B242316A6001740A9 /* SleepLogsTableViewController.swift in Sources */,
 				C1B4886D242316B3001740A9 /* AddLogViewController.swift in Sources */,

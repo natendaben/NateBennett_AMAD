@@ -64,7 +64,7 @@
         <!--Sleep Details-->
         <scene sceneID="9iX-iN-phK">
             <objects>
-                <tableViewController id="9Cb-7C-eB0" customClass="LogTableViewController" sceneMemberID="viewController">
+                <tableViewController id="9Cb-7C-eB0" customClass="ViewLogTableViewController" customModule="lab5" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kHO-71-X6q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,6 +152,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sleep Details" id="uVF-sc-gTs"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="vWq-SM-5Nl" id="9Nb-pZ-7eY"/>
+                        <outlet property="lengthLabel" destination="KEU-VE-LJa" id="Jq3-83-hlp"/>
+                        <outlet property="relaxationLabel" destination="Zvd-YV-f8b" id="yuJ-YM-91z"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEJ-RS-TiW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,7 +188,7 @@
                                 </items>
                             </navigationBar>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="D7N-eQ-C8y">
-                                <rect key="frame" x="20" y="106" width="374" height="216"/>
+                                <rect key="frame" x="20" y="106.33333333333331" width="374" height="216"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxT-Mf-PXP">
                                 <rect key="frame" x="189" y="76" width="36" height="20.333333333333329"/>

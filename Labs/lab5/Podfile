@@ -8,8 +8,9 @@ target 'lab5' do
   # Pods for lab5
 pod 'Firebase/Core'
 pod 'Firebase/Firestore'
-pod 'Firebase/Auth'
-pod 'GoogleSignIn'
+pod 'FirebaseUI/Auth'
+pod 'FirebaseUI/Google'
 pod 'FirebaseFirestoreSwift'
+pod 'FirebaseUI'
 
 end

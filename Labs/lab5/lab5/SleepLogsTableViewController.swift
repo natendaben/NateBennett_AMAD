@@ -81,15 +81,17 @@ class SleepLogsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ViewLog" {
+            let dest = segue.destination as! ViewLogTableViewController
+            let index = tableView.indexPath(for: sender as! UITableViewCell)
+            dest.sleepLog = sleepData[index!.row]
+        }
     }
-    */
+
     @IBAction func unwindSegue(segue: UIStoryboardSegue){
         if segue.identifier == "save" {
             let source = segue.source as! AddLogViewController

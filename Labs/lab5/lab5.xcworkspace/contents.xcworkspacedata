@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/nathanaelbennett/Documents/College/Senior Year/Spring/Advanced Mobile App Development/NateBennett_AMAD/Labs/lab5/lab5/LogTableViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:lab5.xcodeproj">
    </FileRef>
    <FileRef

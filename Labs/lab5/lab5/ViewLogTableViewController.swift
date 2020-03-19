@@ -1,36 +1,23 @@
-
-//
-//  LogTableViewController.swift
-//  
-//
-//  Created by Nathanael Bennett on 3/18/20.
-//
-
 import UIKit
 
-class LogTableViewController: UITableViewController {
+class ViewLogTableViewController: UITableViewController {
 
+    var sleepLog: SleepLog?
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var lengthLabel: UILabel!
+    @IBOutlet weak var relaxationLabel: UILabel!
+    override func viewWillAppear(_ animated: Bool) {
+        dateLabel.text = sleepLog?.getDate()
+        lengthLabel.text = "\(sleepLog?.length ?? 0.0) hours"
+        relaxationLabel.text = sleepLog?.relaxation
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,7 +45,7 @@ class LogTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
