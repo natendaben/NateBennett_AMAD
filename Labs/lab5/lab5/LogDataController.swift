@@ -43,55 +43,65 @@ class LogDataController {
     
     //fetch data and listen for any updates
     func loadData() {
-        db.collection("sleeps").addSnapshotListener { querySnapshot, error in
-            //make sure we got the collection
-            guard let collection = querySnapshot else {
-                print("Error fetching collection: \(error!)")
-                return
+        //get the user id of the currently authenticated user
+        let authUserID = Auth.auth().currentUser?.uid
+        
+        if let userId = authUserID {
+        db.collection("users").document(userId).collection("sleeps").addSnapshotListener { querySnapshot, error in
+                //make sure we got the collection
+                guard let collection = querySnapshot else {
+                    print("Error fetching collection: \(error!)")
+                    return
+                }
+                
+                //get the documents
+                let documents = collection.documents
+                
+                //empty data out
+                self.sleepData.removeAll()
+                
+                //append updated data to our list
+                for document in documents {
+                    //get data from the document
+                    let data = document.data()
+                    
+                    //get the data fields and downcast to appropriate types
+                    let date = (data["date"] as! Timestamp).dateValue()
+                    let length = data["length"] as? Double
+                    let relaxation = data["relaxation"] as! String
+                    
+                    //get id
+                    let id = document.documentID
+                    
+                    //construct object
+                    let sleepLog = SleepLog(date: date, length: length ?? 0.0, relaxation: relaxation, id: id)
+                    
+                    self.sleepData.append(sleepLog)
+                }
+                self.onDataUpdate(self.sleepData)
             }
-            
-            //get the documents
-            let documents = collection.documents
-            
-            //empty data out
-            self.sleepData.removeAll()
-            
-            //append updated data to our list
-            for document in documents {
-                //get data from the document
-                let data = document.data()
-                
-                //get the data fields and downcast to appropriate types
-                let date = (data["date"] as! Timestamp).dateValue()
-                let length = data["length"] as? Double
-                let relaxation = data["relaxation"] as! String
-                
-                //get id
-                let id = document.documentID
-                
-                //construct object
-                let sleepLog = SleepLog(date: date, length: length ?? 0.0, relaxation: relaxation, id: id)
-                
-                self.sleepData.append(sleepLog)
-            }
-            self.onDataUpdate(self.sleepData)
+        } else {
+            print("could not read data, no auth user")
         }
     }
     
     func writeData(date: Date, length: Double, relaxation: String){
-        //add new document with generated id
-        db.collection("sleeps").addDocument(data: [
-            "date": Timestamp(date: date),
-            "length": length,
-            "relaxation": relaxation
-            ], completion: { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                } else {
-                    print("Document added successfully!")
+        let authUserID = Auth.auth().currentUser?.uid
+               
+        if let userID = authUserID {
+            db.collection("users").document(userID).collection("sleeps").addDocument(data: [
+                    "date": Timestamp(date: date),
+                    "length": length,
+                    "relaxation": relaxation
+                ], completion: { err in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                    } else {
+                        print("Document added successfully!")
+                    }
                 }
+            )
         }
-        )
     }
     
     func deleteLog(logID: String){

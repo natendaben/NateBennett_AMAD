@@ -7,24 +7,43 @@
 //
 
 import UIKit
+import FirebaseUI
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, FUIAuthDelegate {
 
+    //create default auth UI instance
+    let authUI = FUIAuth.defaultAuthUI()
+    
+    
+    @IBAction func signIn(_ sender: Any) {
+        //start sign in
+        let authViewController = authUI?.authViewController()
+        //hand control off to FirebaseUI
+        present(authViewController!, animated: true, completion: nil)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        authUI?.delegate = self
+        
+        let provider : [FUIAuthProvider] = [
+            FUIGoogleAuth()
+        ]
+        
+        authUI?.providers = provider
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        if user != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "rootNav")
+            
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+        } else {
+            print(error!.localizedDescription)
+        }
     }
-    */
-
 }

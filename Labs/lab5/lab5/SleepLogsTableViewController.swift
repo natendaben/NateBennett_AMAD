@@ -48,7 +48,7 @@ class SleepLogsTableViewController: UITableViewController {
 
         return cell
     }
-
+/*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -64,7 +64,7 @@ class SleepLogsTableViewController: UITableViewController {
             print("log = \(id)")
             //tableView.deleteRows(at: [indexPath], with: .fade)
         }
-    }
+    }*/
 
     /*
     // Override to support rearranging the table view.
