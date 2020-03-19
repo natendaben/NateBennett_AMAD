@@ -17,7 +17,7 @@ struct SleepLog {
     
     func getDate() -> String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
+        formatter.dateStyle = .medium
         return formatter.string(from: date)
     }
 }

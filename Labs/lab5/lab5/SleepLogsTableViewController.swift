@@ -102,6 +102,7 @@ class SleepLogsTableViewController: UITableViewController {
     func newData(data: [SleepLog]) {
         //set the sleep log
         sleepData = data
+        sleepData.sort(by: {(r1, r2) in r1.date.compare(r2.date) == .orderedDescending})
         //reload tableView
         tableView.reloadData()
     }
