@@ -202,7 +202,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="3Xf-23-yj1">
-                                                <rect key="frame" x="0.0" y="50.333333333333314" width="414" height="216"/>
+                                                <rect key="frame" x="0.0" y="50" width="414" height="216"/>
                                             </datePicker>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours of Sleep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dw-U5-YkO">
                                                 <rect key="frame" x="150.33333333333334" y="286.33333333333331" width="113.33333333333334" height="20.333333333333314"/>
@@ -242,6 +242,9 @@
                                                     <segment title="Okay"/>
                                                     <segment title="Tired"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="segmentChanged:" destination="xQF-L1-CIr" eventType="valueChanged" id="1Dh-hi-IWU"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
