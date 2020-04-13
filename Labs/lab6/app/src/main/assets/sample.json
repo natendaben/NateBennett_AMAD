@@ -1,0 +1,97 @@
+{
+  "routes": [
+    {
+      "id": 105748786,
+      "name": "The Naked Edge",
+      "type": "Trad",
+      "rating": "5.11b",
+      "stars": 4.9,
+      "starVotes": 322,
+      "pitches": 6,
+      "location": [
+        "Colorado",
+        "Boulder",
+        "Eldorado Canyon SP",
+        "Redgarden Wall",
+        "Redgarden - Tower Two"
+      ],
+      "url": "https://www.mountainproject.com/route/105748786/the-naked-edge",
+      "imgSqSmall": "https://cdn-files.apstatic.com/climb/110822565_sqsmall_1494354956.jpg",
+      "imgSmall": "https://cdn-files.apstatic.com/climb/110822565_small_1494354956.jpg",
+      "imgSmallMed": "https://cdn-files.apstatic.com/climb/110822565_smallMed_1494354956.jpg",
+      "imgMedium": "https://cdn-files.apstatic.com/climb/110822565_medium_1494354956.jpg",
+      "longitude": -105.2852,
+      "latitude": 39.9312
+    },
+    {
+      "id": 105750106,
+      "name": "Rewritten",
+      "type": "Trad",
+      "rating": "5.7",
+      "stars": 4.7,
+      "starVotes": 1247,
+      "pitches": 6,
+      "location": [
+        "Colorado",
+        "Boulder",
+        "Eldorado Canyon SP",
+        "Redgarden Wall",
+        "Redgarden - Lumpe to the top"
+      ],
+      "url": "https://www.mountainproject.com/route/105750106/rewritten",
+      "imgSqSmall": "https://cdn-files.apstatic.com/climb/113171856_sqsmall_1497744179.jpg",
+      "imgSmall": "https://cdn-files.apstatic.com/climb/113171856_small_1497744179.jpg",
+      "imgSmallMed": "https://cdn-files.apstatic.com/climb/113171856_smallMed_1497744179.jpg",
+      "imgMedium": "https://cdn-files.apstatic.com/climb/113171856_medium_1497744179.jpg",
+      "longitude": -105.2868,
+      "latitude": 39.9325
+    },
+    {
+      "id": 105748490,
+      "name": "The Bastille Crack",
+      "type": "Trad",
+      "rating": "5.7",
+      "stars": 4.5,
+      "starVotes": 1722,
+      "pitches": 5,
+      "location": [
+        "Colorado",
+        "Boulder",
+        "Eldorado Canyon SP",
+        "The Bastille",
+        "The Bastille - N Face"
+      ],
+      "url": "https://www.mountainproject.com/route/105748490/the-bastille-crack",
+      "imgSqSmall": "https://cdn-files.apstatic.com/climb/1202231_sqsmall_1557525516.jpg",
+      "imgSmall": "https://cdn-files.apstatic.com/climb/1202231_small_1557525516.jpg",
+      "imgSmallMed": "https://cdn-files.apstatic.com/climb/1202231_smallMed_1557525516.jpg",
+      "imgMedium": "https://cdn-files.apstatic.com/climb/1202231_medium_1557525516.jpg",
+      "longitude": -105.2832,
+      "latitude": 39.9308
+    },
+    {
+      "id": 105748612,
+      "name": "Outer Space",
+      "type": "Trad",
+      "rating": "5.10b/c R",
+      "stars": 4.9,
+      "starVotes": 516,
+      "pitches": 2,
+      "location": [
+        "Colorado",
+        "Boulder",
+        "Eldorado Canyon SP",
+        "The Bastille",
+        "The Bastille - N Face"
+      ],
+      "url": "https://www.mountainproject.com/route/105748612/outer-space",
+      "imgSqSmall": "https://cdn-files.apstatic.com/climb/109110646_sqsmall_1494338979.jpg",
+      "imgSmall": "https://cdn-files.apstatic.com/climb/109110646_small_1494338979.jpg",
+      "imgSmallMed": "https://cdn-files.apstatic.com/climb/109110646_smallMed_1494338979.jpg",
+      "imgMedium": "https://cdn-files.apstatic.com/climb/109110646_medium_1494338979.jpg",
+      "longitude": -105.283,
+      "latitude": 39.9307
+    }
+  ],
+  "success": 1
+}
