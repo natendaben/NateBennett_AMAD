@@ -1,12 +1,18 @@
 <resources>
     <string name="app_name">Colorado Climbing</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="grade">Grade</string>
     <string name="type">Type</string>
     <string name="rating">Rating</string>
     <string name="pitches">Pitches</string>
     <string name="route_name">Route Name</string>
     <string name="data">Data</string>
+    <string name="pick_a_climbing_area">Pick a Climbing Area</string>
+    <string name="find_routes">Find Routes</string>
+    <string-array name="areaSpinner">
+        <item>Eldorado Canyon</item>
+        <item>Boulder Canyon</item>
+        <item>Shelf Road</item>
+        <item>Rocky Mountain NP</item>
+        <item>Golden</item>
+    </string-array>
 </resources>

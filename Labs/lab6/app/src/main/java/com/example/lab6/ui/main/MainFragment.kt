@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,55 +20,42 @@ import com.example.lab6.data.Route
 // Fragments are sections of an app's UI. Like React Components they can be rendered and reused as much as you want
 // Useful for layout because larger screens like tablets might be able to display more fragments, which smaller
 //      screens might need to spread fragments out across different pages of the app or something else
-class MainFragment : Fragment(), MainRecyclerAdapter.RouteItemListener {
+class MainFragment : Fragment(){
 
     companion object {
         fun newInstance() = MainFragment()
     }
 
-    private lateinit var viewModel: SharedViewModel
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var sharedViewModel: SharedViewModel
     private lateinit var navController: NavController
+    private lateinit var areaSpinner: Spinner
+    private lateinit var button: Button
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
 
-        (activity as AppCompatActivity?)?.supportActionBar?.title = "Routes"
+        (activity as AppCompatActivity?)?.supportActionBar?.title = "Colorado Climbing"
 
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
 
-        viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
 
         val root = inflater.inflate(R.layout.main_fragment, container, false)
-        //link up our viewModel to our class
-        viewModel  = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-        recyclerView = root.findViewById(R.id.recyclerView)
 
+        areaSpinner = root.findViewById(R.id.climbingAreaSpinner)
+        button = root.findViewById(R.id.button)
 
-        Log.i("climbing", "hello")
-        viewModel.routeData.observe(viewLifecycleOwner, Observer {
-            val adapter = MainRecyclerAdapter(requireContext(), it.routes, this)
-            Log.i("climbing", "${it.routes.count()} routes in list")
-            for(route in it.routes){
-                Log.i("climbing", "${route.name} is a ${route.type} climb")
-            }
-            recyclerView.adapter = adapter
-        })
+        button.setOnClickListener{findRoutes()}
+
         return root
     }
 
-    override fun onRouteItemClick(route: Route) {
-        Log.i("climbing", route.toString())
-        navController.navigate(R.id.action_mainFragment_to_routeDetailFragment)
-
-        viewModel.currentRoute.value = route
-
+    private fun findRoutes(){
+        var climbingArea = areaSpinner.selectedItem
+        //Log.i("climbing", "${climbingArea} has been selected")
+        sharedViewModel.currentArea.value = climbingArea.toString()
+        navController.navigate(R.id.action_mainFragment_to_routeResultsFragment)
     }
 
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-//        // TODO: Use the ViewModel
-//    }
 
 }

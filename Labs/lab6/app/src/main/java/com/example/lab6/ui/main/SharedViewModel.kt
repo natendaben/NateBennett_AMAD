@@ -20,4 +20,15 @@ class SharedViewModel(app: Application) : AndroidViewModel(app) {
     val routeData = routeRepo.routeData
 
     val currentRoute = MutableLiveData<Route>()
+
+    val currentArea = MutableLiveData<String>()
+
+    init{
+        currentArea.observeForever(routeRepo.areaSelected)
+    }
+
+    override fun onCleared() {
+        currentArea.removeObserver(routeRepo.areaSelected)
+        super.onCleared()
+    }
 }

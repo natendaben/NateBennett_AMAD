@@ -11,12 +11,21 @@
         android:label="main_fragment"
         tools:layout="@layout/main_fragment" >
         <action
-            android:id="@+id/action_mainFragment_to_routeDetailFragment"
-            app:destination="@id/routeDetailFragment" />
+            android:id="@+id/action_mainFragment_to_routeResultsFragment"
+            app:destination="@id/routeResultsFragment" />
     </fragment>
     <fragment
         android:id="@+id/routeDetailFragment"
         android:name="com.example.lab6.ui.main.RouteDetailFragment"
         android:label="fragment_route_detail"
         tools:layout="@layout/fragment_route_detail" />
+    <fragment
+        android:id="@+id/routeResultsFragment"
+        android:name="com.example.lab6.ui.main.RouteResultsFragment"
+        android:label="fragment_route_results"
+        tools:layout="@layout/fragment_route_results" >
+        <action
+            android:id="@+id/action_routeResultsFragment_to_routeDetailFragment"
+            app:destination="@id/routeDetailFragment" />
+    </fragment>
 </navigation>

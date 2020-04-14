@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import com.example.lab6.BASE_URL
 import com.example.lab6.utils.FileHelper
 import com.example.lab6.utils.NetworkHelper
@@ -33,11 +34,33 @@ class RouteRepository(val app: Application) {
     init {
         service = retrofit.create(MountainProjectService::class.java)
 
-        CoroutineScope(Dispatchers.IO).launch {
-            getRouteData("40.00", "-105.41")
-        }
     }
 
+    val areaSelected = Observer<String>{
+        var lat = "39.93"
+        var long = "-105.29"
+        when(it){
+            "Eldorado Canyon" -> {
+                lat = "39.93"
+                long = "-105.29"
+            } "Boulder Canyon" -> {
+                lat = "40.00"
+                long = "-105.41"
+            } "Shelf Road" -> {
+                lat = "38.63"
+                long = "-105.23"
+            } "Rocky Mountain NP" -> {
+                lat = "40.29"
+                long = "-105.67"
+            }"Golden" -> {
+                lat = "39.74"
+                long = "-105.30"
+            }
+        }
+        CoroutineScope(Dispatchers.IO).launch {
+            getRouteData(lat, long)
+        }
+    }
     @WorkerThread
     private suspend fun getRouteData(lat: String, long: String){
         if(NetworkHelper.networkConnected(app)){
