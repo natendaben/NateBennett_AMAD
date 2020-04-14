@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -29,6 +30,8 @@ class MainFragment : Fragment(), MainRecyclerAdapter.RouteItemListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
+
+        (activity as AppCompatActivity?)?.supportActionBar?.title = "Routes"
 
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
 
