@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lab6.R
 import com.example.lab6.data.Route
 
-class MainRecyclerAdapter(val context: Context, val routeList: List<Route>): RecyclerView.Adapter<MainRecyclerAdapter.ViewHolder>() {
+class MainRecyclerAdapter(val context: Context, val routeList: List<Route>, val itemListener: RouteItemListener): RecyclerView.Adapter<MainRecyclerAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val routeNameTextView = itemView.findViewById<TextView>(R.id.routeNameTextView)
         val routeGradeTextView = itemView.findViewById<TextView>(R.id.routeGradeTextView)
@@ -31,5 +31,13 @@ class MainRecyclerAdapter(val context: Context, val routeList: List<Route>): Rec
 
         holder.routeNameTextView.text = currentRoute.name
         holder.routeGradeTextView.text = "${currentRoute.type}, ${currentRoute.rating}"
+
+        holder.itemView.setOnClickListener{
+            itemListener.onRouteItemClick(currentRoute)
+        }
+    }
+
+    interface RouteItemListener{
+        fun onRouteItemClick(route: Route)
     }
 }
