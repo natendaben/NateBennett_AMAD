@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import com.example.lab6.R
 
 // Fragments are sections of an app's UI. Like React Components they can be rendered and reused as much as you want
@@ -21,21 +22,27 @@ class MainFragment : Fragment() {
     }
 
     private lateinit var viewModel: MainViewModel
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
 
+        val root = inflater.inflate(R.layout.main_fragment, container, false)
         //link up our viewModel to our class
         viewModel  = ViewModelProvider(this).get(MainViewModel::class.java)
+        recyclerView = root.findViewById(R.id.recyclerView)
+
 
         Log.i("climbing", "hello")
         viewModel.routeData.observe(viewLifecycleOwner, Observer {
+            val adapter = MainRecyclerAdapter(requireContext(), it.routes)
             Log.i("climbing", "${it.routes.count()} routes in list")
             for(route in it.routes){
                 Log.i("climbing", "${route.name} is a ${route.type} climb")
             }
+            recyclerView.adapter = adapter
         })
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
