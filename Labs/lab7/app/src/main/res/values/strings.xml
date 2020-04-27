@@ -14,4 +14,10 @@
     <string name="number_of_pages">Number of Pages</string>
     <string name="_5">5</string>
     <string name="_1">1</string>
+    <string name="book_review_details">Book Review Details:</string>
+    <string name="titleLabel">Title:</string>
+    <string name="number_of_pages_label">Number of Pages:</string>
+    <string name="rating">Rating:</string>
+    <string name="textview">TextView</string>
+    <string name="delete">Delete</string>
 </resources>

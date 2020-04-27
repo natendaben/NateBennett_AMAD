@@ -23,4 +23,10 @@ class BookRepository(val app: Application) {
             bookDao.insertBook(book)
         }
     }
+
+    fun deleteBook(book: Book){
+        CoroutineScope(Dispatchers.IO).launch {
+            bookDao.deleteBook(book.book_id)
+        }
+    }
 }

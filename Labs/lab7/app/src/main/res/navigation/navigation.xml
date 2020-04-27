@@ -10,9 +10,17 @@
         android:label="main_fragment"
         tools:layout="@layout/main_fragment" >
         <action
+            android:id="@+id/action_mainFragment_to_addBookFragment"
+            app:destination="@id/addBookFragment" />
+        <action
             android:id="@+id/action_mainFragment_to_bookDetailsFragment"
             app:destination="@id/bookDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addBookFragment"
+        android:name="com.example.lab7.ui.main.AddBookFragment"
+        android:label="fragment_add_book"
+        tools:layout="@layout/fragment_add_book" />
     <fragment
         android:id="@+id/bookDetailsFragment"
         android:name="com.example.lab7.ui.main.BookDetailsFragment"

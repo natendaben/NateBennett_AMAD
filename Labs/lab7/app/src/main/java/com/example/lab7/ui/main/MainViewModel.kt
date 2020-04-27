@@ -12,7 +12,7 @@ import com.example.lab7.database.BookRepository
 class MainViewModel(app: Application) : AndroidViewModel(app) {
     private val bookRepo = BookRepository(app)
     val bookList: MutableLiveData<List<Book>> = MutableLiveData()
-    var currentBook = Book(0, "", 0, 0)
+    var currentBook: MutableLiveData<Book> = MutableLiveData()
 
     private val bookListObserver = Observer<List<Book>> {
         val allBooks = mutableListOf<Book>()
@@ -37,4 +37,9 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         Log.i("books_logging", "Adding book: ${book.title}")
         bookRepo.addBook(book)
     }
+
+    fun deleteBook(book: Book){
+        bookRepo.deleteBook(book)
+    }
+
 }

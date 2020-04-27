@@ -31,6 +31,10 @@ class BookRecyclerAdapter(val context: Context, var bookList: List<Book>, val it
 
         holder.titleText.text = currentBook.title
         holder.ratingText.text = "${currentBook.rating} stars"
+
+        holder.itemView.setOnClickListener {
+            itemListener.onBookItemClick(currentBook)
+        }
     }
 
     interface BookItemListener{

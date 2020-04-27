@@ -25,7 +25,7 @@ class MainFragment : Fragment(), BookRecyclerAdapter.BookItemListener {
                               savedInstanceState: Bundle?): View {
         setHasOptionsMenu(true)
 
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
 
         (activity as AppCompatActivity?)?.supportActionBar?.title = "Book Reviews"
@@ -50,13 +50,14 @@ class MainFragment : Fragment(), BookRecyclerAdapter.BookItemListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.addBook){
-            navController.navigate(R.id.action_mainFragment_to_bookDetailsFragment)
+            navController.navigate(R.id.action_mainFragment_to_addBookFragment)
         }
 
         return super.onOptionsItemSelected(item)
     }
 
     override fun onBookItemClick(book: Book) {
-        viewModel.currentBook = book
+        viewModel.currentBook.value = book
+        navController.navigate(R.id.action_mainFragment_to_bookDetailsFragment)
     }
 }

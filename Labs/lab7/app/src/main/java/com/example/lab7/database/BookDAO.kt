@@ -16,4 +16,7 @@ interface BookDAO {
 
     @Query("SELECT * FROM books_table WHERE book_id = :id")
     fun getBook(id: Int): Book
+
+    @Query("DELETE FROM books_table WHERE book_id = :id")
+    fun deleteBook(id: Int)
 }
