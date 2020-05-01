@@ -11,11 +11,27 @@
         tools:layout="@layout/main_fragment" >
         <action
             android:id="@+id/action_mainFragment_to_addMovieFragment"
-            app:destination="@id/addMovieFragment" />
+            app:destination="@id/addMovieFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
+        <action
+            android:id="@+id/action_mainFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
     </fragment>
     <fragment
         android:id="@+id/addMovieFragment"
-        android:name="com.example.lab8.AddMovieFragment"
+        android:name="com.example.lab8.ui.main.AddMovieFragment"
         android:label="fragment_add_movie"
         tools:layout="@layout/fragment_add_movie" />
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.example.lab8.ui.main.MovieDetailsFragment"
+        android:label="fragment_movie_details"
+        tools:layout="@layout/fragment_movie_details" />
 </navigation>
