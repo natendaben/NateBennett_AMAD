@@ -2,12 +2,12 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/streaks_main"
+        android:id="@+id/streaksFragment"
         android:icon="@android:drawable/star_off"
         android:title="@string/streaks"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/profile_main"
+        android:id="@+id/profileFragment"
         android:icon="@android:drawable/ic_menu_compass"
         android:title="@string/profile"
         app:showAsAction="ifRoom" />
