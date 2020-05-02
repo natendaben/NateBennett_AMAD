@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Flame</string>
+    <string name="profile">Profile</string>
+    <string name="streaks">Streaks</string>
+</resources>

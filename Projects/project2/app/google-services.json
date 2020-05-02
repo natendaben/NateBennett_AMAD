@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "385497157537",
+    "firebase_url": "https://flame-55512.firebaseio.com",
+    "project_id": "flame-55512",
+    "storage_bucket": "flame-55512.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:385497157537:android:a883bbd4a76b4e5c5045e0",
+        "android_client_info": {
+          "package_name": "com.example.flame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "385497157537-94rebdio02afa9s5cppe575oksu6okss.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPE8loAnYyg_k2T-i2Jgdc9u1hMbEOnfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "385497157537-94rebdio02afa9s5cppe575oksu6okss.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
