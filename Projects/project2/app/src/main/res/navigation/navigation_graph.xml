@@ -7,12 +7,21 @@
 
     <fragment
         android:id="@+id/streaksFragment"
-        android:name="com.example.flame.ui.main.StreaksFragment"
+        android:name="com.example.flame.ui.fragments.StreaksFragment"
         android:label="streaks_fragment"
-        tools:layout="@layout/streaks_fragment" />
+        tools:layout="@layout/streaks_fragment" >
+        <action
+            android:id="@+id/action_streaksFragment_to_addStreakFragment"
+            app:destination="@id/addStreakFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.flame.ui.main.ProfileFragment"
+        android:name="com.example.flame.ui.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/addStreakFragment"
+        android:name="com.example.flame.ui.fragments.AddStreakFragment"
+        android:label="fragment_add_streak"
+        tools:layout="@layout/fragment_add_streak" />
 </navigation>

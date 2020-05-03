@@ -1,5 +1,6 @@
 package com.example.flame.data
 
+import java.time.LocalDate
 import java.util.*
 
 data class Habit (
