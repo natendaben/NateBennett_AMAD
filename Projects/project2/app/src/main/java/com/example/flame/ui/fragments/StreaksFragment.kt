@@ -35,7 +35,7 @@ class StreaksFragment : Fragment(), HabitRecyclerAdapter.HabitItemListener {
         val root = inflater.inflate(R.layout.streaks_fragment, container, false)
 
         habitRecyclerView = root.findViewById(R.id.habitsRecyclerView)
-        adapter = HabitSectionRecyclerAdapter(requireActivity(), emptyList())
+        adapter = HabitSectionRecyclerAdapter(requireActivity(), emptyList(), this)
         habitRecyclerView.adapter = adapter
 
         //observer to update adapter when data set is changed
@@ -72,6 +72,8 @@ class StreaksFragment : Fragment(), HabitRecyclerAdapter.HabitItemListener {
     }
 
     override fun onHabitItemClick(habit: Habit) {
-        Log.i(TAG, "${habit.name} clicked")
+        //Log.i(TAG, "${habit.name} clicked")
+        viewModel.currentHabit.value = habit
+        navController.navigate(R.id.action_streaksFragment_to_streakDetailFragment)
     }
 }

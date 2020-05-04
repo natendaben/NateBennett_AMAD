@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_streaksFragment_to_addStreakFragment"
             app:destination="@id/addStreakFragment" />
+        <action
+            android:id="@+id/action_streaksFragment_to_streakDetailFragment"
+            app:destination="@id/streakDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -24,4 +27,9 @@
         android:name="com.example.flame.ui.fragments.AddStreakFragment"
         android:label="fragment_add_streak"
         tools:layout="@layout/fragment_add_streak" />
+    <fragment
+        android:id="@+id/streakDetailFragment"
+        android:name="com.example.flame.StreakDetailFragment"
+        android:label="fragment_streak_detail"
+        tools:layout="@layout/fragment_streak_detail" />
 </navigation>

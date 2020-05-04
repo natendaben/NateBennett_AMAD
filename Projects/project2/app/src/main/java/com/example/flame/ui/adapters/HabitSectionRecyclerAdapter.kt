@@ -15,7 +15,7 @@ import com.example.flame.data.HabitCategory
 import com.example.flame.ui.viewModels.MainViewModel
 
 
-class HabitSectionRecyclerAdapter(var context: Context, var habitCategoryList: List<HabitCategory>): RecyclerView.Adapter<HabitSectionRecyclerAdapter.ViewHolder>(), HabitRecyclerAdapter.HabitItemListener {
+class HabitSectionRecyclerAdapter(var context: Context, var habitCategoryList: List<HabitCategory>, val itemListener: HabitRecyclerAdapter.HabitItemListener): RecyclerView.Adapter<HabitSectionRecyclerAdapter.ViewHolder>(){
 
     //custom view holder
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -38,7 +38,7 @@ class HabitSectionRecyclerAdapter(var context: Context, var habitCategoryList: L
         val currentCategory = habitCategoryList[position]
 
         holder.categoryRecyclerViewLabel.text = currentCategory.categoryLabel
-        val adapter = HabitRecyclerAdapter(currentCategory.habitList, this)
+        val adapter = HabitRecyclerAdapter(currentCategory.habitList, itemListener)
         val manager = GridLayoutManager(context, 2)
         holder.categoryRecyclerView.adapter = adapter
         holder.categoryRecyclerView.layoutManager = manager
@@ -47,9 +47,6 @@ class HabitSectionRecyclerAdapter(var context: Context, var habitCategoryList: L
 //            itemListener.onHabitItemClick(currentHabit)
 //        }
     }
-
-    override fun onHabitItemClick(habit: Habit) {
-        Log.i(TAG, "${habit.name} clicked")    }
 }
 
 

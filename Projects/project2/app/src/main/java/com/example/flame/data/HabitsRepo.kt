@@ -37,7 +37,6 @@ class HabitsRepo {
         habitListOrderedByCategory.value = listOf(
             HabitCategory("sleep", listOf(
                 Habit("0","1","","", Date(),0),
-                Habit("1","2","","", Date(),4),
                 Habit("2","3","","", Date(),52))),
             HabitCategory("eat", listOf(
                 Habit("3","eat healthy","","", Date(),0),
