@@ -15,6 +15,7 @@ import com.example.flame.R
 import com.example.flame.TAG
 import com.example.flame.data.Habit
 import com.example.flame.ui.adapters.HabitRecyclerAdapter
+import com.example.flame.ui.adapters.HabitSectionRecyclerAdapter
 import com.example.flame.ui.viewModels.MainViewModel
 
 class StreaksFragment : Fragment(), HabitRecyclerAdapter.HabitItemListener {
@@ -22,7 +23,7 @@ class StreaksFragment : Fragment(), HabitRecyclerAdapter.HabitItemListener {
     private lateinit var viewModel: MainViewModel
     private lateinit var navController: NavController
     private lateinit var habitRecyclerView: RecyclerView
-    private lateinit var adapter: HabitRecyclerAdapter
+    private lateinit var adapter: HabitSectionRecyclerAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -34,17 +35,26 @@ class StreaksFragment : Fragment(), HabitRecyclerAdapter.HabitItemListener {
         val root = inflater.inflate(R.layout.streaks_fragment, container, false)
 
         habitRecyclerView = root.findViewById(R.id.habitsRecyclerView)
-        adapter = HabitRecyclerAdapter(emptyList(), this)
+        adapter = HabitSectionRecyclerAdapter(requireActivity(), emptyList())
         habitRecyclerView.adapter = adapter
 
-        val manager = GridLayoutManager(activity, 2)
-        habitRecyclerView.layoutManager = manager
-
         //observer to update adapter when data set is changed
-        viewModel.habitList.observe(viewLifecycleOwner, Observer {
-            adapter.habitList = it
+        viewModel.habitListOrderedByCategory.observe(viewLifecycleOwner, Observer {
+            adapter.habitCategoryList = it
             adapter.notifyDataSetChanged()
         })
+
+//        adapter = HabitRecyclerAdapter(emptyList(), this)
+//        habitRecyclerView.adapter = adapter
+//
+//        val manager = GridLayoutManager(activity, 2)
+//        habitRecyclerView.layoutManager = manager
+//
+//        //observer to update adapter when data set is changed
+//        viewModel.habitList.observe(viewLifecycleOwner, Observer {
+//            adapter.habitList = it
+//            adapter.notifyDataSetChanged()
+//        })
 
         return root
     }

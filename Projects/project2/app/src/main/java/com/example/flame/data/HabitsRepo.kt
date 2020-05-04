@@ -17,6 +17,7 @@ class HabitsRepo {
 
     //habit list
     val habitList = MutableLiveData<List<Habit>>()
+    val habitListOrderedByCategory = MutableLiveData<List<HabitCategory>>()
 
     init{
         //add snapshot listener to database for when habits are added or removed
@@ -32,6 +33,23 @@ class HabitsRepo {
                 Log.w(TAG, "Data is null")
             }
         }
+
+        habitListOrderedByCategory.value = listOf(
+            HabitCategory("sleep", listOf(
+                Habit("0","1","","", Date(),0),
+                Habit("1","2","","", Date(),4),
+                Habit("2","3","","", Date(),52))),
+            HabitCategory("eat", listOf(
+                Habit("3","eat healthy","","", Date(),0),
+                Habit("4","eat three meals a day","","", Date(),4),
+                Habit("9","do something","","", Date(),0),
+                Habit("10","do something else that has a long title","","", Date(),4),
+                Habit("5","drink water a lot","","", Date(),52))),
+            HabitCategory("relax", listOf(
+                Habit("6","read books","","", Date(),0),
+                Habit("7","play video games","","", Date(),4),
+                Habit("8","meditate","","", Date(),52)))
+        )
     }
 
     //function for refreshing habit data whenever database changes
@@ -88,4 +106,5 @@ class HabitsRepo {
     fun deleteHabit(id: String){
         db.collection("habits").document(id).delete()
     }
+
 }

@@ -9,6 +9,7 @@ class MainViewModel : ViewModel() {
     private val habitsRepo = HabitsRepo()
     val habitList = habitsRepo.habitList
     var currentHabit: MutableLiveData<Habit> = MutableLiveData()
+    val habitListOrderedByCategory = habitsRepo.habitListOrderedByCategory
 
     //attach repo add habit method
     fun addHabit(habit: Habit){

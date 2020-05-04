@@ -1,12 +1,10 @@
 package com.example.flame.ui.adapters
 
-import android.graphics.Rect
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.example.flame.R
 import com.example.flame.data.Habit
 
