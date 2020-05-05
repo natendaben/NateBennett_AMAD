@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
 
-    private val navControllerListener = NavController.OnDestinationChangedListener { controller, destination, arguments ->
+    private val navControllerListener = NavController.OnDestinationChangedListener { _, destination, _ ->
         if(destination.id == R.id.streaksFragment || destination.id == R.id.profileFragment) {
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
         } else {

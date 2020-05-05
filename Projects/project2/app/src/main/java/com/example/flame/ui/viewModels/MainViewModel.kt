@@ -21,5 +21,14 @@ class MainViewModel : ViewModel() {
         habitsRepo.deleteHabit(id)
     }
 
+    //attach cancel streak update method
+    fun cancelStreakUpdate(id: String){
+        habitsRepo.cancelStreakUpdate(id)
+    }
+
+    fun updateStreak(id: String){
+        habitsRepo.updateStreak(id)
+    }
+
 
 }

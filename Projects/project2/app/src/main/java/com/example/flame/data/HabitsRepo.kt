@@ -104,8 +104,8 @@ class HabitsRepo {
     fun addHabit(habit: Habit){
         //fill in habit data
         val habitToAdd = hashMapOf(
-            "name" to habit.name,
-            "category" to habit.category,
+            "name" to habit.name.capitalize(),
+            "category" to habit.category.capitalize(),
             "color" to habit.color,
             "dateActivated" to habit.dateActivated,
             "doneForDay" to habit.doneForDay
@@ -127,4 +127,11 @@ class HabitsRepo {
         db.collection("habits").document(id).delete()
     }
 
+    fun cancelStreakUpdate(id: String){
+        db.collection("habits").document(id).update("doneForDay", false)
+    }
+
+    fun updateStreak(id: String){
+        db.collection("habits").document(id).update("doneForDay", true)
+    }
 }

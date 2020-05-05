@@ -9,4 +9,11 @@
     <string name="textview">TextView</string>
     <string name="_143">143</string>
     <string name="days">days</string>
+    <string name="streak">Streak:</string>
+    <string name="since">Since:</string>
+    <string name="category">Category:</string>
+    <string name="flame">flame</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="reset">Reset</string>
 </resources>

@@ -36,7 +36,11 @@ class HabitRecyclerAdapter(val context: Context, var habitList: List<Habit>, val
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentHabit = habitList[position]
 
-        holder.streakDaysTextView.text = currentHabit.numberOfDaysActive.toString()
+        if(currentHabit.doneForDay){
+            holder.streakDaysTextView.text = (currentHabit.numberOfDaysActive+1).toString()
+        } else {
+            holder.streakDaysTextView.text = currentHabit.numberOfDaysActive.toString()
+        }
         holder.streakLabelTextView.text = currentHabit.name
 
         val resources = context.resources
