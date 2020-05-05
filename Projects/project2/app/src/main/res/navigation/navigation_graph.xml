@@ -29,7 +29,7 @@
         tools:layout="@layout/fragment_add_streak" />
     <fragment
         android:id="@+id/streakDetailFragment"
-        android:name="com.example.flame.StreakDetailFragment"
+        android:name="com.example.flame.ui.fragments.StreakDetailFragment"
         android:label="fragment_streak_detail"
         tools:layout="@layout/fragment_streak_detail" />
 </navigation>
