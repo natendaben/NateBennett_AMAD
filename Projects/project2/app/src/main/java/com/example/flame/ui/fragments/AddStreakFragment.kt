@@ -38,7 +38,7 @@ class AddStreakFragment : Fragment() {
         return root
     }
 
-    fun addNewHabit(){
-        viewModel.addHabit(Habit("0", "wake up early", "morning", "red", Date(), 0))
+    private fun addNewHabit(){
+        viewModel.addHabit(Habit("0", "wake up early", "afternoon", "red", Date(), 0, true))
     }
 }

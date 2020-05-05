@@ -9,4 +9,14 @@
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#000000</color>
     <color name="white">#ffffff</color>
+    <color name="yellow">#f9ef65</color>
+    <color name="orange">#f9a35c</color>
+    <color name="red">#f26958</color>
+    <color name="pink">#f178af</color>
+    <color name="purple">#be84ba</color>
+    <color name="darkblue">#6970ad</color>
+    <color name="blue">#7295cd</color>
+    <color name="lightblue">#a6dce3</color>
+    <color name="lightgreen">#7fdda5</color>
+    <color name="green">#60b260</color>
 </resources>

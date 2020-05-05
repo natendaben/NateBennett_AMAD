@@ -3,6 +3,7 @@ package com.example.flame.ui.fragments
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
@@ -43,19 +44,6 @@ class StreaksFragment : Fragment(), HabitRecyclerAdapter.HabitItemListener {
             adapter.habitCategoryList = it
             adapter.notifyDataSetChanged()
         })
-
-//        adapter = HabitRecyclerAdapter(emptyList(), this)
-//        habitRecyclerView.adapter = adapter
-//
-//        val manager = GridLayoutManager(activity, 2)
-//        habitRecyclerView.layoutManager = manager
-//
-//        //observer to update adapter when data set is changed
-//        viewModel.habitList.observe(viewLifecycleOwner, Observer {
-//            adapter.habitList = it
-//            adapter.notifyDataSetChanged()
-//        })
-
         return root
     }
 

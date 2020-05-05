@@ -9,5 +9,6 @@ data class Habit (
     val category: String,
     val color: String,
     val dateActivated: Date,
-    val numberOfDaysActive: Int
+    val numberOfDaysActive: Int,
+    val doneForDay: Boolean
 )

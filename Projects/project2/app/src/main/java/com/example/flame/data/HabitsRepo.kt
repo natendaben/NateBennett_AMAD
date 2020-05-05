@@ -34,51 +34,71 @@ class HabitsRepo {
             }
         }
 
-        habitListOrderedByCategory.value = listOf(
-            HabitCategory("sleep", listOf(
-                Habit("0","1","","", Date(),0),
-                Habit("2","3","","", Date(),52))),
-            HabitCategory("eat", listOf(
-                Habit("3","eat healthy","","", Date(),0),
-                Habit("4","eat three meals a day","","", Date(),4),
-                Habit("9","do something","","", Date(),0),
-                Habit("10","do something else that has a long title","","", Date(),4),
-                Habit("5","drink water a lot","","", Date(),52))),
-            HabitCategory("relax", listOf(
-                Habit("6","read books","","", Date(),0),
-                Habit("7","play video games","","", Date(),4),
-                Habit("8","meditate","","", Date(),52)))
-        )
+//        habitListOrderedByCategory.value = listOf(
+//            HabitCategory("sleep", listOf(
+//                Habit("0","1","","", Date(),0),
+//                Habit("2","3","","", Date(),52))),
+//            HabitCategory("eat", listOf(
+//                Habit("3","eat healthy","","", Date(),0),
+//                Habit("4","eat three meals a day","","", Date(),4),
+//                Habit("9","do something","","", Date(),0),
+//                Habit("10","do something else that has a long title","","", Date(),4),
+//                Habit("5","drink water a lot","","", Date(),52))),
+//            HabitCategory("relax", listOf(
+//                Habit("6","read books","","", Date(),0),
+//                Habit("7","play video games","","", Date(),4),
+//                Habit("8","meditate","","", Date(),52)))
+//        )
     }
 
     //function for refreshing habit data whenever database changes
     private fun parseAllHabits(result: QuerySnapshot){
-        var allHabits = mutableListOf<Habit>()
+        val allHabits = mutableListOf<HabitCategory>()
 
         for(habit in result){
+            //get data from firebase
             val id: String = habit.id //id to be used for deleting habit later if desired
             val name = habit.getString("name")!!
             val category = habit.getString("category")!!
             val color = habit.getString("color")!!
             val dateActivated = (habit.get("dateActivated") as Timestamp).toDate()
+            val doneForDay = habit.get("doneForDay") as Boolean
 
+            //calculate days habit has been active for displaying in recyclerview
             val currentDate = Date()
             val diffInMillies = abs(currentDate.time - dateActivated.time)
             val diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS)
-            Log.i(TAG, "id: ${id}, name: ${name}, category: ${category}, color: ${color}, dateActivated: ${dateActivated}, time between date started and now: ${diff}")
-            allHabits.add(
-                Habit(
+            //Log.i(TAG, "id: ${id}, name: ${name}, category: ${category}, color: ${color}, dateActivated: ${dateActivated}, time between date started and now: ${diff}")
+
+            val currentHabit = Habit(
                 id,
                 name,
                 category,
                 color,
                 dateActivated,
-                diff.toInt()
-            ))
+                diff.toInt(),
+                doneForDay
+            )
+            //check if category is already in list
+            var categoryExists = false
+            for(categoryGroup in allHabits){
+                if(categoryGroup.categoryLabel.equals(category,true)){ //if category is found in habitCategoryList
+                    categoryExists = true
+                    Log.i(TAG, "${currentHabit.category} found in habitCategoryList")
+                    categoryGroup.habitList.add(currentHabit)
+                }
+            }
+            //if category still hasn't been found
+            if(!categoryExists){
+                val newHabitList = mutableListOf(currentHabit)
+                val newHabitCategory = currentHabit.category.capitalize()
+                allHabits.add(HabitCategory(newHabitCategory, newHabitList))   //add habit category to category list with current habit
+                Log.i(TAG, "New category section added with category: ${currentHabit.category} ")
+            }
         }
 
         //update habit list
-        habitList.value = allHabits
+        habitListOrderedByCategory.value = allHabits
     }
 
     fun addHabit(habit: Habit){
@@ -87,7 +107,8 @@ class HabitsRepo {
             "name" to habit.name,
             "category" to habit.category,
             "color" to habit.color,
-            "dateActivated" to habit.dateActivated
+            "dateActivated" to habit.dateActivated,
+            "doneForDay" to habit.doneForDay
         )
 
         //add habit to database

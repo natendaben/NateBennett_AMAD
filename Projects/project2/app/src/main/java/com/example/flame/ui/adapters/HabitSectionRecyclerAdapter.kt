@@ -38,7 +38,7 @@ class HabitSectionRecyclerAdapter(var context: Context, var habitCategoryList: L
         val currentCategory = habitCategoryList[position]
 
         holder.categoryRecyclerViewLabel.text = currentCategory.categoryLabel
-        val adapter = HabitRecyclerAdapter(currentCategory.habitList, itemListener)
+        val adapter = HabitRecyclerAdapter(context, currentCategory.habitList, itemListener)
         val manager = GridLayoutManager(context, 2)
         holder.categoryRecyclerView.adapter = adapter
         holder.categoryRecyclerView.layoutManager = manager
