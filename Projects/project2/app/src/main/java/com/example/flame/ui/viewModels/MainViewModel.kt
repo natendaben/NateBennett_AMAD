@@ -7,7 +7,6 @@ import com.example.flame.data.HabitsRepo
 
 class MainViewModel : ViewModel() {
     private val habitsRepo = HabitsRepo()
-    val habitList = habitsRepo.habitList
     var currentHabit: MutableLiveData<Habit> = MutableLiveData()
     val habitListOrderedByCategory = habitsRepo.habitListOrderedByCategory
 
@@ -30,5 +29,11 @@ class MainViewModel : ViewModel() {
         habitsRepo.updateStreak(id)
     }
 
+    fun updateLastActiveDate(){
+        habitsRepo.updateLastActiveDate()
+    }
 
+    fun refreshData(){
+        habitsRepo.refreshData()
+    }
 }

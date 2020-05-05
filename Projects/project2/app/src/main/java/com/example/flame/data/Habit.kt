@@ -5,10 +5,10 @@ import java.util.*
 
 data class Habit (
     val id: String,
-    val name: String,
-    val category: String,
-    val color: String,
-    val dateActivated: Date,
-    val numberOfDaysActive: Int,
-    val doneForDay: Boolean
+    var name: String,
+    var category: String,
+    var color: String,
+    var dateActivated: Date,
+    var numberOfDaysActive: Int,
+    var doneForDay: Boolean
 )

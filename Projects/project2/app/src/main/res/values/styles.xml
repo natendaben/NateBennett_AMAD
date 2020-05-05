@@ -7,6 +7,11 @@
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/secondaryColor</item>
         <item name="android:fontFamily">@font/futura_medium</item>
+        <item name="buttonStyle">@style/ButtonStyle</item>
     </style>
 
+    <style name="ButtonStyle" parent="@style/Widget.AppCompat.Button">
+        <item name="android:background">@drawable/buttonbg</item>
+        <item name="android:textColor">@color/primaryColor</item>
+    </style>
 </resources>

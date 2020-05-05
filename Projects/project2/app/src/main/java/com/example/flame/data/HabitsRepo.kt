@@ -7,16 +7,16 @@ import com.google.firebase.Timestamp
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.text.DateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 class HabitsRepo {
     //reference to database
-    val db = Firebase.firestore
+    private val db = Firebase.firestore
 
     //habit list
-    val habitList = MutableLiveData<List<Habit>>()
     val habitListOrderedByCategory = MutableLiveData<List<HabitCategory>>()
 
     init{
@@ -33,22 +33,6 @@ class HabitsRepo {
                 Log.w(TAG, "Data is null")
             }
         }
-
-//        habitListOrderedByCategory.value = listOf(
-//            HabitCategory("sleep", listOf(
-//                Habit("0","1","","", Date(),0),
-//                Habit("2","3","","", Date(),52))),
-//            HabitCategory("eat", listOf(
-//                Habit("3","eat healthy","","", Date(),0),
-//                Habit("4","eat three meals a day","","", Date(),4),
-//                Habit("9","do something","","", Date(),0),
-//                Habit("10","do something else that has a long title","","", Date(),4),
-//                Habit("5","drink water a lot","","", Date(),52))),
-//            HabitCategory("relax", listOf(
-//                Habit("6","read books","","", Date(),0),
-//                Habit("7","play video games","","", Date(),4),
-//                Habit("8","meditate","","", Date(),52)))
-//        )
     }
 
     //function for refreshing habit data whenever database changes
@@ -61,7 +45,7 @@ class HabitsRepo {
             val name = habit.getString("name")!!
             val category = habit.getString("category")!!
             val color = habit.getString("color")!!
-            val dateActivated = (habit.get("dateActivated") as Timestamp).toDate()
+            val dateActivated = habit.getDate("dateActivated")!!
             val doneForDay = habit.get("doneForDay") as Boolean
 
             //calculate days habit has been active for displaying in recyclerview
@@ -84,7 +68,7 @@ class HabitsRepo {
             for(categoryGroup in allHabits){
                 if(categoryGroup.categoryLabel.equals(category,true)){ //if category is found in habitCategoryList
                     categoryExists = true
-                    Log.i(TAG, "${currentHabit.category} found in habitCategoryList")
+                    //Log.i(TAG, "${currentHabit.category} found in habitCategoryList")
                     categoryGroup.habitList.add(currentHabit)
                 }
             }
@@ -93,12 +77,52 @@ class HabitsRepo {
                 val newHabitList = mutableListOf(currentHabit)
                 val newHabitCategory = currentHabit.category.capitalize()
                 allHabits.add(HabitCategory(newHabitCategory, newHabitList))   //add habit category to category list with current habit
-                Log.i(TAG, "New category section added with category: ${currentHabit.category} ")
+                //Log.i(TAG, "New category section added with category: ${currentHabit.category} ")
             }
         }
 
         //update habit list
         habitListOrderedByCategory.value = allHabits
+    }
+
+    private fun checkIfNewDay(){
+        val dateDoc = db.collection("dates").document("dateLastUpdated")
+        dateDoc.get()
+            .addOnSuccessListener {
+                val dateLastUpdated = it.getDate("date")!!
+                val df = DateFormat.getDateInstance(DateFormat.DATE_FIELD)
+                val lastDate = df.format(dateLastUpdated)
+                val currentDate = df.format(Date())
+                Log.i(TAG, "last date: ${lastDate}")
+                Log.i(TAG, "current date: ${currentDate}")
+                if(lastDate == currentDate){
+                    Log.i(TAG, "It's not a new day!")
+                } else {
+                    Log.i(TAG, "It is a new day!")
+
+                    //New day, so check all streaks and reset doneForDay locally
+                    val newHabitList = habitListOrderedByCategory.value!!
+                    for(category in newHabitList){
+                        for(habit in category.habitList){
+                            if(!habit.doneForDay){ //if habit wasn't done yesterday
+                                habit.dateActivated = Date() //set new activation date to today
+                                habit.numberOfDaysActive = 0
+                            }
+                            //for all habits, set doneForDay to false since it is a new day
+                            habit.doneForDay = false
+                        }
+                    }
+                    //update database
+                    for(category in newHabitList){
+                        for(habit in category.habitList){
+                            updateExistingHabit(habit)
+                        }
+                    }
+                }
+            }
+            .addOnFailureListener {exception ->
+                Log.i(TAG, "Date get failed with exception: ", exception)
+            }
     }
 
     fun addHabit(habit: Habit){
@@ -133,5 +157,24 @@ class HabitsRepo {
 
     fun updateStreak(id: String){
         db.collection("habits").document(id).update("doneForDay", true)
+    }
+
+    fun updateLastActiveDate(){
+        db.collection("dates").document("dateLastUpdated").update("date", Date())
+        Log.i(TAG,"Last active date: ${Date()}")
+    }
+
+    fun refreshData(){
+        checkIfNewDay()
+    }
+
+    fun updateExistingHabit(updatedHabit: Habit){
+        db.collection("habits").document(updatedHabit.id).update(
+            "name", updatedHabit.name,
+            "category", updatedHabit.category,
+            "color", updatedHabit.color,
+            "dateActivated", updatedHabit.dateActivated,
+            "doneForDay", updatedHabit.doneForDay
+        )
     }
 }
