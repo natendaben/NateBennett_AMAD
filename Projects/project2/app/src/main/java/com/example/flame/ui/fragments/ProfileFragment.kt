@@ -36,7 +36,6 @@ class ProfileFragment : Fragment() {
 
         signOutButton = root.findViewById(R.id.signOutButton)
         nameTextView = root.findViewById(R.id.usernameTextView)
-        nameTextView.text = FirebaseAuth.getInstance().currentUser?.displayName ?: "Welcome to your profile!"
 
         signOutButton.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
@@ -50,6 +49,12 @@ class ProfileFragment : Fragment() {
         }
 
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        nameTextView.text = FirebaseAuth.getInstance().currentUser?.displayName ?: "Welcome to your profile!"
+
     }
 
 }
