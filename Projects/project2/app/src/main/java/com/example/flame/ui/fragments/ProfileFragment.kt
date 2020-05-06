@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 
@@ -37,12 +38,13 @@ class ProfileFragment : Fragment() {
         nameTextView = root.findViewById(R.id.usernameTextView)
 
         signOutButton.setOnClickListener{
-//            AuthUI.getInstance()
-//                .signOut(requireContext())
-//                .addOnCompleteListener{
-//                    Log.i(TAG, "Signed out user")
-//                    navController.
-//                }
+            AuthUI.getInstance()
+                .signOut(requireContext())
+                .addOnCompleteListener{
+                    Log.i(TAG, "Signed out user")
+                    navController.navigate(R.id.action_profileFragment_to_signInFragment)
+                    Toast.makeText(requireActivity(), "Signed out successfully", Toast.LENGTH_SHORT).show()
+                }
         }
 
         return root
