@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
@@ -27,6 +28,8 @@ class StreakDetailFragment : Fragment() {
 
     private lateinit var currentHabit: Habit
     private lateinit var streakResetButton: Button
+    private lateinit var streakDeleteButton: Button
+    private lateinit var streakEditButton: Button
     private lateinit var streakIconContainer: ConstraintLayout
 
     //add observer for updating view when "current habit" changes
@@ -75,10 +78,13 @@ class StreakDetailFragment : Fragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_streak_detail, container, false)
         streakResetButton = root.findViewById(R.id.resetStreakButton)
+        streakDeleteButton = root.findViewById(R.id.deleteStreakButton)
+        streakEditButton = root.findViewById(R.id.editStreakButton)
         streakIconContainer = root.findViewById(R.id.streakIconContainer)
 
         //hook up buttons
         streakResetButton.setOnClickListener{ cancelStreakUpdate() }
+        streakDeleteButton.setOnClickListener{ deleteStreak() }
         streakIconContainer.setOnClickListener { updateStreak() }
 
         return root
@@ -94,6 +100,26 @@ class StreakDetailFragment : Fragment() {
         } else {
             streakLengthTextView.text = "${daysActive} days!"
         }
+    }
+
+    private fun deleteStreak(){
+        val dialogBuilder = AlertDialog.Builder(requireContext())
+
+        dialogBuilder.setMessage("Delete this habit forever? This action cannot be undone.")
+            .setCancelable(false)
+            .setPositiveButton("Yes"){ dialog, _ ->
+                viewModel.deleteHabit(currentHabit.id)
+                dialog.dismiss()
+                navController.navigateUp()
+                val text = "Habit deleted successfully!"
+                val toast = Toast.makeText(requireContext(), text, Toast.LENGTH_LONG)
+                toast.show()
+            }
+            .setNegativeButton("No"){ dialog, _ -> dialog.cancel()}
+
+        val alert = dialogBuilder.create()
+        alert.setTitle("Delete Habit")
+        alert.show()
     }
 
     private fun updateStreak(){

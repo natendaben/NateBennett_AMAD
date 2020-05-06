@@ -31,5 +31,14 @@
         android:id="@+id/streakDetailFragment"
         android:name="com.example.flame.ui.fragments.StreakDetailFragment"
         android:label="fragment_streak_detail"
-        tools:layout="@layout/fragment_streak_detail" />
+        tools:layout="@layout/fragment_streak_detail" >
+        <action
+            android:id="@+id/action_streakDetailFragment_to_editHabitFragment"
+            app:destination="@id/editHabitFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editHabitFragment"
+        android:name="com.example.flame.ui.fragments.EditHabitFragment"
+        android:label="fragment_edit_habit"
+        tools:layout="@layout/fragment_edit_habit" />
 </navigation>
