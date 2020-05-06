@@ -15,6 +15,7 @@ import com.example.flame.data.Habit
 import com.example.flame.ui.adapters.HabitRecyclerAdapter
 import com.example.flame.ui.adapters.HabitSectionRecyclerAdapter
 import com.example.flame.ui.viewModels.MainViewModel
+import com.google.firebase.auth.FirebaseAuth
 
 class StreaksFragment : Fragment(), HabitRecyclerAdapter.HabitItemListener {
 
@@ -42,6 +43,17 @@ class StreaksFragment : Fragment(), HabitRecyclerAdapter.HabitItemListener {
             adapter.notifyDataSetChanged()
         })
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val firebaseUser = FirebaseAuth.getInstance().currentUser
+        if(firebaseUser != null) {
+            Log.i(
+                TAG,
+                "From StreaksFragment...Current user name is ${firebaseUser?.displayName} and user id is ${firebaseUser?.uid}"
+            )
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

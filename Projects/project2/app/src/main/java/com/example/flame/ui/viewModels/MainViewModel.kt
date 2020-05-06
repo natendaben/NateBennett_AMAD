@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.flame.data.Habit
 import com.example.flame.data.HabitsRepo
+import com.google.firebase.auth.FirebaseUser
 
 class MainViewModel : ViewModel() {
     private val habitsRepo = HabitsRepo()
@@ -39,5 +40,9 @@ class MainViewModel : ViewModel() {
 
     fun updateStreakInfoFromUI(id: String, name: String, category: String, color: String){
         habitsRepo.updateStreakInfoFromUI(id, name, category, color)
+    }
+
+    fun userIsLoggedIn(user: FirebaseUser){
+        habitsRepo.userIsLoggedIn(user)
     }
 }

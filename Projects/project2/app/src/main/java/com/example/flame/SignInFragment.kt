@@ -10,8 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.example.flame.ui.viewModels.MainViewModel
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
@@ -23,6 +25,7 @@ class SignInFragment : Fragment() {
 
     private lateinit var signInButton: Button
     private lateinit var navController: NavController
+    private lateinit var viewModel: MainViewModel
 
     private val providers = arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
 
@@ -36,6 +39,9 @@ class SignInFragment : Fragment() {
                 val user = FirebaseAuth.getInstance().currentUser
                 Toast.makeText(requireActivity(), "Welcome, ${user?.displayName}!", Toast.LENGTH_LONG).show()
                 navController.navigate(R.id.action_signInFragment_to_streaksFragment)
+                if(user != null){
+                    viewModel.userIsLoggedIn(user)
+                }
             } else {
                 if(response != null){
                     Log.e(TAG, response.error?.localizedMessage!!)
@@ -51,6 +57,7 @@ class SignInFragment : Fragment() {
     ): View? {
 
         navController = Navigation.findNavController(requireActivity(), R.id.fragment)
+        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_sign_in, container, false)
         signInButton = root.findViewById(R.id.signInButton)

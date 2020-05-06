@@ -74,6 +74,11 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        FirebaseAuth.getInstance().signOut()
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, null)
     }

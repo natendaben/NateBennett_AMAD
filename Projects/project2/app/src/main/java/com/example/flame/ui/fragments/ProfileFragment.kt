@@ -36,14 +36,16 @@ class ProfileFragment : Fragment() {
 
         signOutButton = root.findViewById(R.id.signOutButton)
         nameTextView = root.findViewById(R.id.usernameTextView)
+        nameTextView.text = FirebaseAuth.getInstance().currentUser?.displayName ?: "Welcome to your profile!"
 
         signOutButton.setOnClickListener{
-            AuthUI.getInstance()
-                .signOut(requireContext())
+            FirebaseAuth.getInstance().signOut()
+            AuthUI.getInstance().signOut(requireContext())
                 .addOnCompleteListener{
                     Log.i(TAG, "Signed out user")
                     navController.navigate(R.id.action_profileFragment_to_signInFragment)
                     Toast.makeText(requireActivity(), "Signed out successfully", Toast.LENGTH_SHORT).show()
+
                 }
         }
 
