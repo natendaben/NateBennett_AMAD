@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.flame.TAG
 import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -19,21 +20,25 @@ class HabitsRepo {
     //habit list
     val habitListOrderedByCategory = MutableLiveData<List<HabitCategory>>()
 
+    private val firebaseUser = FirebaseAuth.getInstance().currentUser
+
     init{
-        //add snapshot listener to database for when habits are added or removed
-        db.collection("habits").addSnapshotListener{snapshot, error ->
-            if(error != null){
-                //handle error
-                Log.i(TAG, "Firebase listen failed", error)
-                return@addSnapshotListener
+        if(firebaseUser != null) {
+            //add snapshot listener to database for when habits are added or removed
+            db.collection("habits").addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    //handle error
+                    Log.i(TAG, "Firebase listen failed", error)
+                    return@addSnapshotListener
+                }
+                if (snapshot != null) {
+                    parseAllHabits(snapshot)
+                } else {
+                    Log.w(TAG, "Data is null")
+                }
             }
-            if(snapshot != null){
-                parseAllHabits(snapshot)
-            } else {
-                Log.w(TAG, "Data is null")
-            }
+            db.collection("habits").get().addOnSuccessListener { parseAllHabits(it) }
         }
-        db.collection("habits").get().addOnSuccessListener { parseAllHabits(it) }
     }
 
     //function for refreshing habit data whenever database changes
