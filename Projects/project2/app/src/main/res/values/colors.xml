@@ -19,4 +19,5 @@
     <color name="lightblue">#a6dce3</color>
     <color name="lightgreen">#7fdda5</color>
     <color name="green">#60b260</color>
+    <color name="selectedColorOutline">#434343</color>
 </resources>

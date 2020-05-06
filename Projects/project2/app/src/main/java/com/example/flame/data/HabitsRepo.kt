@@ -33,6 +33,7 @@ class HabitsRepo {
                 Log.w(TAG, "Data is null")
             }
         }
+        db.collection("habits").get().addOnSuccessListener { parseAllHabits(it) }
     }
 
     //function for refreshing habit data whenever database changes
