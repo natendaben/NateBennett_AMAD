@@ -93,6 +93,7 @@ class StreakDetailFragment : Fragment() {
 
     private fun cancelStreakUpdate(){
         viewModel.cancelStreakUpdate(currentHabit.id)
+        viewModel.currentHabit.value?.doneForDay = false
         streakIcon.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.greyf, null))
         streakIconContainer.background = ResourcesCompat.getDrawable(resources, R.drawable.greybg, null)
         val daysActive = currentHabit.numberOfDaysActive
@@ -125,6 +126,7 @@ class StreakDetailFragment : Fragment() {
 
     private fun updateStreak(){
         viewModel.updateStreak(currentHabit.id)
+        viewModel.currentHabit.value?.doneForDay = true
         streakIcon.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.colorf, null))
         streakIconContainer.background = ResourcesCompat.getDrawable(resources, R.drawable.colorbg, null)
         val daysActive = currentHabit.numberOfDaysActive + 1
