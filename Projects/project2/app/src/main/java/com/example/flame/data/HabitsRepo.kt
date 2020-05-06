@@ -178,4 +178,12 @@ class HabitsRepo {
             "doneForDay", updatedHabit.doneForDay
         )
     }
+
+    fun updateStreakInfoFromUI(id: String, name: String, category: String, color: String){
+        db.collection("habits").document(id).update(
+            "name", name,
+            "category", category,
+            "color", color
+        )
+    }
 }

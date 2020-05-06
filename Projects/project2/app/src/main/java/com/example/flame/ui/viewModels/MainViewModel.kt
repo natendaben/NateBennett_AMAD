@@ -36,4 +36,8 @@ class MainViewModel : ViewModel() {
     fun refreshData(){
         habitsRepo.refreshData()
     }
+
+    fun updateStreakInfoFromUI(id: String, name: String, category: String, color: String){
+        habitsRepo.updateStreakInfoFromUI(id, name, category, color)
+    }
 }

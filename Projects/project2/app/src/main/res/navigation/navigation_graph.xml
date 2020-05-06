@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/editHabitFragment"
-        android:name="com.example.flame.ui.fragments.EditHabitFragment"
+        android:name="com.example.flame.ui.fragments.EditStreakFragment"
         android:label="fragment_edit_habit"
-        tools:layout="@layout/fragment_edit_habit" />
+        tools:layout="@layout/fragment_edit_streak" />
 </navigation>

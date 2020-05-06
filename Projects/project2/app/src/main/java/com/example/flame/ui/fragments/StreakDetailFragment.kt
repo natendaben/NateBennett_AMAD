@@ -85,6 +85,7 @@ class StreakDetailFragment : Fragment() {
         //hook up buttons
         streakResetButton.setOnClickListener{ cancelStreakUpdate() }
         streakDeleteButton.setOnClickListener{ deleteStreak() }
+        streakEditButton.setOnClickListener{ editStreak() }
         streakIconContainer.setOnClickListener { updateStreak() }
 
         return root
@@ -132,6 +133,10 @@ class StreakDetailFragment : Fragment() {
         } else {
             streakLengthTextView.text = "${daysActive} days!"
         }
+    }
+
+    private fun editStreak(){
+        navController.navigate(R.id.action_streakDetailFragment_to_editHabitFragment)
     }
 
 }
