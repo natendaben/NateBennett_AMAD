@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/streaksFragment">
+    app:startDestination="@id/signInFragment">
 
     <fragment
         android:id="@+id/streaksFragment"
@@ -41,4 +41,13 @@
         android:name="com.example.flame.ui.fragments.EditStreakFragment"
         android:label="fragment_edit_habit"
         tools:layout="@layout/fragment_edit_streak" />
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.flame.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_streaksFragment"
+            app:destination="@id/streaksFragment" />
+    </fragment>
 </navigation>

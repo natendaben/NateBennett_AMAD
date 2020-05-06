@@ -16,15 +16,15 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.flame.ui.viewModels.MainViewModel
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
+    private lateinit var bottom_nav: BottomNavigationView
     private lateinit var viewModel: MainViewModel
-    private lateinit var signInButton: Button
-    private lateinit var viewSwitcher: ViewSwitcher
 
     private val navControllerListener = NavController.OnDestinationChangedListener { _, destination, _ ->
         if(destination.id == R.id.streaksFragment || destination.id == R.id.profileFragment) {
@@ -39,30 +39,16 @@ class MainActivity : AppCompatActivity() {
             R.id.profileFragment -> {
                 supportActionBar?.title = "Profile"
             }
-
+        }
+        if(destination.id == R.id.signInFragment){
+            bottom_nav.visibility = android.view.View.GONE
+            supportActionBar?.hide()
+        } else {
+            bottom_nav.visibility = android.view.View.VISIBLE
+            supportActionBar?.show()
         }
     }
 
-    private val providers = arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if(requestCode == 1){
-            val response = IdpResponse.fromResultIntent(data)
-
-            if(resultCode == Activity.RESULT_OK){
-                val user = FirebaseAuth.getInstance().currentUser
-                Toast.makeText(this, "Welcome, ${user?.displayName}!", Toast.LENGTH_LONG).show()
-                viewSwitcher.showNext()
-            } else {
-                if(response != null){
-                    Log.e(TAG, response.error?.localizedMessage!!)
-                    Toast.makeText(this, "Could not complete sign-in, try again!", Toast.LENGTH_LONG).show()
-                }
-            }
-        }
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
@@ -70,20 +56,8 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         navController = Navigation.findNavController(this, R.id.fragment)
+        bottom_nav = findViewById(R.id.bottom_nav)
         bottom_nav.setupWithNavController(navController)
-
-        signInButton = findViewById(R.id.signInButton)
-        viewSwitcher = findViewById(R.id.signInSwitcher)
-
-        signInButton.setOnClickListener{
-            startActivityForResult(
-                AuthUI.getInstance()
-                    .createSignInIntentBuilder()
-                    .setAvailableProviders(providers)
-                    .build(),
-                1
-            )
-        }
 
         NavigationUI.setupActionBarWithNavController(this, navController)
         navController.addOnDestinationChangedListener(navControllerListener)

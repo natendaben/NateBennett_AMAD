@@ -25,7 +25,7 @@ class HabitsRepo {
     init{
         if(firebaseUser != null) {
             //add snapshot listener to database for when habits are added or removed
-            db.collection("habits").addSnapshotListener { snapshot, error ->
+            db.collection("users").document(firebaseUser.uid).collection("habits").addSnapshotListener { snapshot, error ->
                 if (error != null) {
                     //handle error
                     Log.i(TAG, "Firebase listen failed", error)
@@ -37,7 +37,7 @@ class HabitsRepo {
                     Log.w(TAG, "Data is null")
                 }
             }
-            db.collection("habits").get().addOnSuccessListener { parseAllHabits(it) }
+            db.collection("users").document(firebaseUser.uid).collection("habits").get().addOnSuccessListener { parseAllHabits(it) }
         }
     }
 
@@ -92,103 +92,132 @@ class HabitsRepo {
     }
 
     private fun checkIfNewDay(){
-        val dateDoc = db.collection("dates").document("dateLastUpdated")
-        dateDoc.get()
-            .addOnSuccessListener {
-                val dateLastUpdated = it.getDate("date")!!
-                val df = DateFormat.getDateInstance(DateFormat.DATE_FIELD)
-                val lastDate = df.format(dateLastUpdated)
-                val currentDate = df.format(Date())
-                Log.i(TAG, "last date: ${lastDate}")
-                Log.i(TAG, "current date: ${currentDate}")
-                if(lastDate == currentDate){
-                    Log.i(TAG, "It's not a new day!")
-                } else {
-                    Log.i(TAG, "It is a new day!")
+        if(firebaseUser != null) {
+            val dateDoc = db.collection("users").document(firebaseUser.uid).collection("dates")
+                .document("dateLastUpdated")
+            dateDoc.get()
+                .addOnSuccessListener {
+                    val dateLastUpdated = it.getDate("date") ?: Date()
+                    val df = DateFormat.getDateInstance(DateFormat.DATE_FIELD)
+                    val lastDate = df.format(dateLastUpdated)
+                    val currentDate = df.format(Date())
+                    Log.i(TAG, "last date: ${lastDate}")
+                    Log.i(TAG, "current date: ${currentDate}")
+                    if (lastDate == currentDate) {
+                        Log.i(TAG, "It's not a new day!")
+                    } else {
+                        Log.i(TAG, "It is a new day!")
 
-                    //New day, so check all streaks and reset doneForDay locally
-                    val newHabitList = habitListOrderedByCategory.value!!
-                    for(category in newHabitList){
-                        for(habit in category.habitList){
-                            if(!habit.doneForDay){ //if habit wasn't done yesterday
-                                habit.dateActivated = Date() //set new activation date to today
-                                habit.numberOfDaysActive = 0
+                        //New day, so check all streaks and reset doneForDay locally
+                        val newHabitList = habitListOrderedByCategory.value!!
+                        for (category in newHabitList) {
+                            for (habit in category.habitList) {
+                                if (!habit.doneForDay) { //if habit wasn't done yesterday
+                                    habit.dateActivated = Date() //set new activation date to today
+                                    habit.numberOfDaysActive = 0
+                                }
+                                //for all habits, set doneForDay to false since it is a new day
+                                habit.doneForDay = false
                             }
-                            //for all habits, set doneForDay to false since it is a new day
-                            habit.doneForDay = false
                         }
-                    }
-                    //update database
-                    for(category in newHabitList){
-                        for(habit in category.habitList){
-                            updateExistingHabit(habit)
+                        //update database
+                        for (category in newHabitList) {
+                            for (habit in category.habitList) {
+                                updateExistingHabit(habit)
+                            }
                         }
                     }
                 }
-            }
-            .addOnFailureListener {exception ->
-                Log.i(TAG, "Date get failed with exception: ", exception)
-            }
+                .addOnFailureListener { exception ->
+                    Log.i(TAG, "Date get failed with exception: ", exception)
+                }
+        }
     }
 
     fun addHabit(habit: Habit){
-        //fill in habit data
-        val habitToAdd = hashMapOf(
-            "name" to habit.name.capitalize(),
-            "category" to habit.category.capitalize(),
-            "color" to habit.color,
-            "dateActivated" to habit.dateActivated,
-            "doneForDay" to habit.doneForDay
-        )
+        if(firebaseUser != null) {
+            //fill in habit data
+            val habitToAdd = hashMapOf(
+                "name" to habit.name.capitalize(),
+                "category" to habit.category.capitalize(),
+                "color" to habit.color,
+                "dateActivated" to habit.dateActivated,
+                "doneForDay" to habit.doneForDay
+            )
 
-        //add habit to database
-        db.collection("habits")
-            .add(habitToAdd)
-            .addOnSuccessListener {
-                Log.i(TAG, "DocumentSnapshot added with ID: ${it.id}")
-            }
-            .addOnFailureListener { e ->
-                Log.w(TAG, "Error adding document", e)
-            }
+            //add habit to database
+            db.collection("users").document(firebaseUser.uid).collection("habits")
+                .add(habitToAdd)
+                .addOnSuccessListener {
+                    Log.i(TAG, "DocumentSnapshot added with ID: ${it.id}")
+                }
+                .addOnFailureListener { e ->
+                    Log.w(TAG, "Error adding document", e)
+                }
+        }
     }
 
     //function to delete habit from Firebase database
     fun deleteHabit(id: String){
-        db.collection("habits").document(id).delete()
+        if(firebaseUser != null){
+            db.collection("users").document(firebaseUser.uid).collection("habits").document(id).delete()
+        }
     }
 
     fun cancelStreakUpdate(id: String){
-        db.collection("habits").document(id).update("doneForDay", false)
+        if(firebaseUser != null) {
+            db.collection("users").document(firebaseUser.uid).collection("habits").document(id)
+                .update("doneForDay", false)
+        }
     }
 
     fun updateStreak(id: String){
-        db.collection("habits").document(id).update("doneForDay", true)
+        if(firebaseUser != null) {
+            db.collection("users").document(firebaseUser.uid).collection("habits").document(id)
+                .update("doneForDay", true)
+        }
     }
 
     fun updateLastActiveDate(){
-        db.collection("dates").document("dateLastUpdated").update("date", Date())
-        Log.i(TAG,"Last active date: ${Date()}")
+        if(firebaseUser != null) {
+            db.collection("users").document(firebaseUser.uid).collection("dates")
+                .document("dateLastUpdated")
+                .update("date", Date())
+                .addOnSuccessListener { Log.i(TAG, "Last active date: ${Date()}") }
+                .addOnFailureListener {
+                    val dateToAdd = hashMapOf("date" to Date())
+                    db.collection("users").document(firebaseUser.uid).collection("dates")
+                        .document("dateLastUpdated").set(dateToAdd)
+                    Log.i(TAG, "Added date for the first time")
+                }
+        }
     }
 
     fun refreshData(){
         checkIfNewDay()
     }
 
-    fun updateExistingHabit(updatedHabit: Habit){
-        db.collection("habits").document(updatedHabit.id).update(
-            "name", updatedHabit.name,
-            "category", updatedHabit.category,
-            "color", updatedHabit.color,
-            "dateActivated", updatedHabit.dateActivated,
-            "doneForDay", updatedHabit.doneForDay
-        )
+    private fun updateExistingHabit(updatedHabit: Habit){
+        if(firebaseUser != null) {
+            db.collection("users").document(firebaseUser.uid).collection("habits")
+                .document(updatedHabit.id).update(
+                "name", updatedHabit.name,
+                "category", updatedHabit.category,
+                "color", updatedHabit.color,
+                "dateActivated", updatedHabit.dateActivated,
+                "doneForDay", updatedHabit.doneForDay
+            )
+        }
     }
 
     fun updateStreakInfoFromUI(id: String, name: String, category: String, color: String){
-        db.collection("habits").document(id).update(
-            "name", name,
-            "category", category,
-            "color", color
-        )
+        if(firebaseUser != null) {
+            db.collection("users").document(firebaseUser.uid).collection("habits").document(id)
+                .update(
+                    "name", name,
+                    "category", category,
+                    "color", color
+                )
+        }
     }
 }
