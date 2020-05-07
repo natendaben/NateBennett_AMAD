@@ -23,10 +23,6 @@ class HabitsRepo {
 
     var firebaseUser = FirebaseAuth.getInstance().currentUser
 
-    init{
-
-    }
-
     //function for refreshing habit data whenever database changes
     private fun parseAllHabits(result: QuerySnapshot){
         val allHabits = mutableListOf<HabitCategory>()
