@@ -9,11 +9,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 
 import com.example.flame.R
 import com.example.flame.TAG
+import com.example.flame.ui.viewModels.MainViewModel
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 
@@ -22,6 +24,7 @@ class ProfileFragment : Fragment() {
 
     private lateinit var signOutButton: Button
     private lateinit var nameTextView: TextView
+    private lateinit var viewModel: MainViewModel
 
     private lateinit var navController: NavController
 
@@ -30,6 +33,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         navController = Navigation.findNavController(requireActivity(), R.id.fragment)
+        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
@@ -53,7 +57,14 @@ class ProfileFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        nameTextView.text = FirebaseAuth.getInstance().currentUser?.displayName ?: "Welcome to your profile!"
+        var user = FirebaseAuth.getInstance().currentUser
+        if(user != null){
+            nameTextView.text = user.displayName
+        } else {
+            user = viewModel.getUser()
+            nameTextView.text = user.displayName
+        }
+        //nameTextView.text = FirebaseAuth.getInstance().currentUser?.displayName ?: "Welcome to your profile!"
 
     }
 

@@ -97,6 +97,7 @@ class HabitsRepo {
                                 if (!habit.doneForDay) { //if habit wasn't done yesterday
                                     habit.dateActivated = Date() //set new activation date to today
                                     habit.numberOfDaysActive = 0
+                                    Log.i(TAG, "${habit.name} wasn't completed, streak expired!")
                                 }
                                 //for all habits, set doneForDay to false since it is a new day
                                 habit.doneForDay = false
@@ -233,5 +234,9 @@ class HabitsRepo {
         } else {
             Log.i(TAG, "Both users are null.. Problem logging in")
         }
+    }
+
+    fun getUser(): FirebaseUser{
+        return firebaseUser as FirebaseUser
     }
 }

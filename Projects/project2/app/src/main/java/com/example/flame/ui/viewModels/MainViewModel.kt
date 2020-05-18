@@ -45,4 +45,8 @@ class MainViewModel : ViewModel() {
     fun userIsLoggedIn(user: FirebaseUser){
         habitsRepo.userIsLoggedIn(user)
     }
+
+    fun getUser(): FirebaseUser{
+        return habitsRepo.getUser()
+    }
 }

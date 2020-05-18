@@ -1,29 +1,20 @@
 package com.example.flame
 
-import android.app.Activity
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.Toast
-import android.widget.ViewSwitcher
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.flame.ui.viewModels.MainViewModel
-import com.firebase.ui.auth.AuthUI
-import com.firebase.ui.auth.IdpResponse
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
-    private lateinit var bottom_nav: BottomNavigationView
+    private lateinit var bottomNav: BottomNavigationView
     private lateinit var viewModel: MainViewModel
 
     private val navControllerListener = NavController.OnDestinationChangedListener { _, destination, _ ->
@@ -41,10 +32,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
         if(destination.id == R.id.signInFragment){
-            bottom_nav.visibility = android.view.View.GONE
+            bottomNav.visibility = android.view.View.GONE
             supportActionBar?.hide()
         } else {
-            bottom_nav.visibility = android.view.View.VISIBLE
+            bottomNav.visibility = android.view.View.VISIBLE
             supportActionBar?.show()
         }
     }
@@ -56,8 +47,8 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         navController = Navigation.findNavController(this, R.id.fragment)
-        bottom_nav = findViewById(R.id.bottom_nav)
-        bottom_nav.setupWithNavController(navController)
+        bottomNav = findViewById(R.id.bottom_nav)
+        bottomNav.setupWithNavController(navController)
 
         NavigationUI.setupActionBarWithNavController(this, navController)
         navController.addOnDestinationChangedListener(navControllerListener)
