@@ -1,4 +1,4 @@
-package com.example.flame.ui.fragments
+package com.natebennett.flame.ui.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -9,12 +9,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flame.R
-import com.example.flame.TAG
-import com.example.flame.data.Habit
-import com.example.flame.ui.adapters.HabitRecyclerAdapter
-import com.example.flame.ui.adapters.HabitSectionRecyclerAdapter
-import com.example.flame.ui.viewModels.MainViewModel
+import com.natebennett.flame.R
+import com.natebennett.flame.TAG
+import com.natebennett.flame.data.Habit
+import com.natebennett.flame.ui.adapters.HabitRecyclerAdapter
+import com.natebennett.flame.ui.adapters.HabitSectionRecyclerAdapter
+import com.natebennett.flame.ui.viewModels.MainViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 class StreaksFragment : Fragment(), HabitRecyclerAdapter.HabitItemListener {

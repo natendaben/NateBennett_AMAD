@@ -1,4 +1,4 @@
-package com.example.flame.ui.fragments
+package com.natebennett.flame.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,9 +15,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.example.flame.R
-import com.example.flame.data.Habit
-import com.example.flame.ui.viewModels.MainViewModel
+import com.natebennett.flame.R
+import com.natebennett.flame.data.Habit
+import com.natebennett.flame.ui.viewModels.MainViewModel
 import kotlinx.android.synthetic.main.fragment_streak_detail.*
 import java.text.DateFormat
 

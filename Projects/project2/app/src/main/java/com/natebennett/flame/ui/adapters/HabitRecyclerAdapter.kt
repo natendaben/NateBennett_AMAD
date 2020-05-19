@@ -1,17 +1,15 @@
-package com.example.flame.ui.adapters
+package com.natebennett.flame.ui.adapters
 
 import android.content.Context
-import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flame.R
-import com.example.flame.data.Habit
+import com.natebennett.flame.R
+import com.natebennett.flame.data.Habit
 
 
 class HabitRecyclerAdapter(val context: Context, var habitList: List<Habit>, val itemListener: HabitItemListener): RecyclerView.Adapter<HabitRecyclerAdapter.ViewHolder>() {

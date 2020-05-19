@@ -1,4 +1,4 @@
-package com.example.flame
+package com.natebennett.flame
 
 import org.junit.Test
 

@@ -1,9 +1,9 @@
-package com.example.flame.ui.viewModels
+package com.natebennett.flame.ui.viewModels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.flame.data.Habit
-import com.example.flame.data.HabitsRepo
+import com.natebennett.flame.data.Habit
+import com.natebennett.flame.data.HabitsRepo
 import com.google.firebase.auth.FirebaseUser
 
 class MainViewModel : ViewModel() {

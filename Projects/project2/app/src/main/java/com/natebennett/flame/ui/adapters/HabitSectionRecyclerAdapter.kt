@@ -1,18 +1,14 @@
-package com.example.flame.ui.adapters
+package com.natebennett.flame.ui.adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flame.R
-import com.example.flame.TAG
-import com.example.flame.data.Habit
-import com.example.flame.data.HabitCategory
-import com.example.flame.ui.viewModels.MainViewModel
+import com.natebennett.flame.R
+import com.natebennett.flame.data.HabitCategory
 
 
 class HabitSectionRecyclerAdapter(var context: Context, var habitCategoryList: List<HabitCategory>, val itemListener: HabitRecyclerAdapter.HabitItemListener): RecyclerView.Adapter<HabitSectionRecyclerAdapter.ViewHolder>(){

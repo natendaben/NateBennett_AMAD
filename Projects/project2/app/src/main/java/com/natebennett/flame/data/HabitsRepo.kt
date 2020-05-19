@@ -1,9 +1,8 @@
-package com.example.flame.data
+package com.natebennett.flame.data
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.flame.TAG
-import com.google.firebase.Timestamp
+import com.natebennett.flame.TAG
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.QuerySnapshot

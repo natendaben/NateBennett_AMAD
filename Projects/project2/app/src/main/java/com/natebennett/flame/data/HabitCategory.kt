@@ -1,4 +1,4 @@
-package com.example.flame.data
+package com.natebennett.flame.data
 
 //class for sectioned recycler view
 class HabitCategory (

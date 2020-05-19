@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/streaksFragment"
-        android:name="com.example.flame.ui.fragments.StreaksFragment"
+        android:name="com.natebennett.flame.ui.fragments.StreaksFragment"
         android:label="streaks_fragment"
         tools:layout="@layout/streaks_fragment" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.flame.ui.fragments.ProfileFragment"
+        android:name="com.natebennett.flame.ui.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -36,12 +36,12 @@
     </fragment>
     <fragment
         android:id="@+id/addStreakFragment"
-        android:name="com.example.flame.ui.fragments.AddStreakFragment"
+        android:name="com.natebennett.flame.ui.fragments.AddStreakFragment"
         android:label="fragment_add_streak"
         tools:layout="@layout/fragment_add_streak" />
     <fragment
         android:id="@+id/streakDetailFragment"
-        android:name="com.example.flame.ui.fragments.StreakDetailFragment"
+        android:name="com.natebennett.flame.ui.fragments.StreakDetailFragment"
         android:label="fragment_streak_detail"
         tools:layout="@layout/fragment_streak_detail" >
         <action
@@ -54,12 +54,12 @@
     </fragment>
     <fragment
         android:id="@+id/editHabitFragment"
-        android:name="com.example.flame.ui.fragments.EditStreakFragment"
+        android:name="com.natebennett.flame.ui.fragments.EditStreakFragment"
         android:label="fragment_edit_habit"
         tools:layout="@layout/fragment_edit_streak" />
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.flame.SignInFragment"
+        android:name="com.natebennett.flame.SignInFragment"
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" >
         <action

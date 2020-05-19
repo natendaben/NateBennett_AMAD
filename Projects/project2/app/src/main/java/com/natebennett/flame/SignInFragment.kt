@@ -1,4 +1,4 @@
-package com.example.flame
+package com.natebennett.flame
 
 import android.app.Activity
 import android.content.Intent
@@ -13,7 +13,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.example.flame.ui.viewModels.MainViewModel
+import com.natebennett.flame.ui.viewModels.MainViewModel
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
